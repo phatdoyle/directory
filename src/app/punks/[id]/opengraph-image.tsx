@@ -1,6 +1,4 @@
 import { ImageResponse } from "next/og";
-import { getPunkById } from "@/data/projects";
-import { COLORS } from "@/lib/constants";
 
 export const runtime = "nodejs";
 
@@ -17,12 +15,7 @@ export default async function Image({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const punkId = parseInt(id, 10);
-  const punk = getPunkById(punkId);
 
-  const name = punk?.name || `Punk #${punkId}`;
-
-  // Simple text-only OG image for testing
   return new ImageResponse(
     (
       <div
@@ -30,18 +23,15 @@ export default async function Image({
           height: "100%",
           width: "100%",
           display: "flex",
-          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: COLORS.punkBlue,
+          backgroundColor: "#638696",
           color: "white",
+          fontSize: 72,
+          fontWeight: 900,
         }}
       >
-        <div style={{ fontSize: 72, fontWeight: 900 }}>{name}</div>
-        <div style={{ fontSize: 36, marginTop: 20 }}>Punk #{punkId}</div>
-        <div style={{ fontSize: 24, marginTop: 40, opacity: 0.6 }}>
-          Made by Punks
-        </div>
+        Punk #{id}
       </div>
     ),
     size
