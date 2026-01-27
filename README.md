@@ -1,85 +1,106 @@
 # Made by Punks
 
-A community-curated directory of projects, tools, and art inspired by CryptoPunks. Celebrating builders who keep the punk spirit alive.
+A trustless, community-owned directory of projects built by CryptoPunks holders.
+
+## Philosophy
+
+CryptoPunks belong to no one and everyone. This directory exists to celebrate the builders who keep the punk spirit alive.
+
+**Made by Punks is not a company.** There is no team, no token, no roadmap. It's a public good maintained by the community, for the community.
+
+- **Trustless** - All data lives in markdown files. No database, no backend, no single point of failure.
+- **Permissionless** - Anyone can add their punk profile and projects via pull request.
+- **Decentralized** - Fork it, remix it, make it your own. The code is MIT licensed.
+- **Community-owned** - Maintainers are punk holders who volunteer their time.
+
+This is lore that belongs to everyone.
 
 ## Project Structure
-
-This project uses a **content-driven architecture** where all punk and project data is stored in markdown files with YAML frontmatter. This makes it easy for anyone to contribute by simply adding or editing markdown files.
 
 ```
 madebypunks/
 ├── content/
+│   ├── pages/                    # Static pages (markdown)
+│   │   └── add.md                # "Add Your Project" page content
 │   └── punks/
-│       └── [punkId]/           # Folder for each punk (e.g., 2113/)
-│           ├── index.md        # Punk metadata
-│           └── [project].md    # One file per project
+│       └── [punkId]/             # One folder per punk (e.g., 2113/)
+│           ├── index.md          # Punk profile & metadata
+│           └── [project].md      # One file per project
+├── public/
+│   └── projects/                 # Project thumbnail images
 ├── src/
-│   ├── app/                    # Next.js pages
-│   ├── components/             # React components
+│   ├── app/                      # Next.js App Router pages
+│   │   ├── add/                  # /add page
+│   │   └── punks/
+│   │       └── [id]/             # /punks/[id] page
+│   │           └── [projectId]/  # /punks/[id]/[projectId] page
+│   ├── components/               # React components
 │   ├── data/
-│   │   └── punks.ts            # Data loading utility
-│   ├── lib/                    # Utilities
-│   └── types/                  # TypeScript types
-└── public/                     # Static assets
+│   │   └── punks.ts              # Data loader (reads content/ at build time)
+│   ├── lib/                      # Utilities & constants
+│   └── types/                    # TypeScript types
+└── README.md
 ```
 
-## Add Your Project
+## How It Works
 
-Building something with Punks? Add it to the directory:
+1. All punk and project data is stored as **markdown files** in `content/punks/`
+2. At build time, `src/data/punks.ts` reads all markdown files and parses the YAML frontmatter
+3. Pages are statically generated for each punk and project
+4. No database, no API, no runtime data fetching
 
-### 1. Create Your Punk Folder
+## Add Your Punk Profile
 
-Create a folder in `content/punks/` with your punk ID:
+### 1. Fork & Clone
 
+```bash
+git clone https://github.com/YOUR_USERNAME/madebypunks.git
+cd madebypunks
 ```
-content/punks/1234/
+
+### 2. Create Your Punk Folder
+
+```bash
+mkdir -p content/punks/YOUR_PUNK_ID
 ```
 
-### 2. Add Punk Metadata
-
-Create an `index.md` file with your punk's info:
+### 3. Add Your Profile (`index.md`)
 
 ```md
 ---
 name: Your Name
-twitter: your_twitter_handle
-website: https://your-website.com
+twitter: your_handle
+website: https://your-site.com
 ---
 
-Write anything you want here! This content will appear on your punk's page.
+Write anything you want here. This is your space.
 
-You can use **bold**, *italic*, [links](https://example.com), and more.
-
-- Bullet points
-- Code blocks
-- Images
-- Whatever you need!
+Share your story, your vision, whatever. Markdown is supported.
 ```
 
-#### Punk Frontmatter Fields
+**Fields:**
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `name` | No | Display name for the punk owner |
+| `name` | No | Display name |
 | `twitter` | No | Twitter/X handle (without @) |
 | `website` | No | Personal website URL |
 
-### 3. Add Your Projects
+### 4. Add Your Projects
 
-Create a markdown file for each project (e.g., `my-project.md`):
+Create a file for each project (e.g., `my-project.md`):
 
 ```md
 ---
 name: My Project
-description: A brief description of what the project does.
-thumbnail: https://example.com/logo.png
+description: A brief description of what it does.
+thumbnail: /projects/my-project.png
 url: https://my-project.com
 launchDate: 2024-01-15
 tags:
   - Tool
   - Art
-  - Community
-twitter: project_twitter
+twitter: project_handle
 github: https://github.com/user/repo
 discord: https://discord.gg/invite
 ---
@@ -87,24 +108,40 @@ discord: https://discord.gg/invite
 Optional longer description in markdown.
 ```
 
-#### Project Frontmatter Fields
+**Fields:**
 
 | Field | Required | Description |
 |-------|----------|-------------|
 | `name` | Yes | Project name |
 | `description` | Yes | Short description (1-2 sentences) |
 | `url` | Yes | Project URL |
-| `launchDate` | Yes | Launch date in YYYY-MM-DD format |
-| `tags` | Yes | Array of tags (e.g., Tool, Art, Community) |
-| `thumbnail` | No | URL to project logo/thumbnail |
-| `twitter` | No | Project's Twitter/X handle |
+| `launchDate` | Yes | Launch date (YYYY-MM-DD) |
+| `tags` | Yes | Array of tags |
+| `thumbnail` | No | Path to thumbnail (e.g., `/projects/my-project.png`) |
+| `twitter` | No | Project's Twitter handle |
 | `github` | No | GitHub repository URL |
 | `discord` | No | Discord invite URL |
 | `hidden` | No | Set to `true` to hide from listings |
 
-### 4. Submit a PR
+### 5. Add Thumbnail (Optional)
 
-Fork this repository, add your files, and submit a pull request!
+Place your project image in `public/projects/`:
+
+```bash
+public/projects/my-project.png
+```
+
+Recommended size: **1200x630px** (OG image dimensions).
+
+### 6. Submit PR
+
+```bash
+git add .
+git commit -m "Add Punk #1234 and projects"
+git push origin main
+```
+
+Then open a pull request. A maintainer will review and merge.
 
 ## Development
 
@@ -117,28 +154,44 @@ npm run dev
 
 # Build for production
 npm run build
+
+# Start production server
+npm start
 ```
+
+## Become a Maintainer
+
+Want to help review PRs?
+
+Open an issue titled **"Maintainer Request"** with:
+
+- Your punk ID
+- Your Twitter/X handle
+- Why you want to help
+
+Maintainers review contributions and keep spam out. No special privileges, just responsibility.
 
 ## Tech Stack
 
-- [Next.js 16](https://nextjs.org/) - React framework
+- [Next.js 16](https://nextjs.org/) - React framework with App Router
 - [TypeScript](https://www.typescriptlang.org/) - Type safety
 - [Tailwind CSS v4](https://tailwindcss.com/) - Styling
 - [gray-matter](https://github.com/jonschlinkert/gray-matter) - YAML frontmatter parsing
-- Dynamic OG images with `next/og`
+- [react-markdown](https://github.com/remarkjs/react-markdown) - Markdown rendering
 
 ## Colors
 
-The design uses the official CryptoPunks color palette:
-- Punk Blue: `#638696`
-- Punk Pink: `#ff69b4`
+Official CryptoPunks palette:
+
+- **Punk Blue:** `#638696`
+- **Punk Pink:** `#ff69b4`
 
 ## Deploy
 
-Deploy on [Vercel](https://vercel.com) with one click:
+Deploy your own instance on Vercel:
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/gwendall/madebypunks)
 
 ## License
 
-MIT
+MIT - Do whatever you want with it.

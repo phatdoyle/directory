@@ -1,6 +1,7 @@
+import Link from "next/link";
 import { Header, Footer, PunkSection } from "@/components";
 import PUNKS, { getAllPunks, getAllTags } from "@/data/punks";
-import { GITHUB_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/constants";
+import { SITE_NAME, SITE_TAGLINE } from "@/lib/constants";
 
 export default function HomePage() {
   const punkIds = getAllPunks();
@@ -21,8 +22,11 @@ export default function HomePage() {
             <h1 className="text-4xl font-bold uppercase tracking-wider text-white sm:text-5xl lg:text-6xl">
               {SITE_NAME}
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-white/80">
-              {SITE_DESCRIPTION}
+            <p className="mx-auto mt-4 text-xl font-medium text-white/90">
+              {SITE_TAGLINE}
+            </p>
+            <p className="mx-auto mt-2 max-w-xl text-sm text-white/60">
+              No database. No backend. No gatekeepers. Just git.
             </p>
             <div className="mt-8 flex items-center justify-center gap-8">
               <div className="border-4 border-white bg-white px-6 py-3">
@@ -71,16 +75,14 @@ export default function HomePage() {
               Building something with Punks?
             </h2>
             <p className="mt-4 text-white/80">
-              Submit a PR to add your project and join the directory.
+              This directory belongs to the community. Add your project via PR.
             </p>
-            <a
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/add"
               className="mt-6 inline-block border-4 border-white bg-white px-8 py-3 text-sm font-bold uppercase tracking-wider text-punk-pink transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0_0_rgba(0,0,0,0.3)]"
             >
-              + Add Project
-            </a>
+              Learn How →
+            </Link>
           </div>
         </section>
       </main>
