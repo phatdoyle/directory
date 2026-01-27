@@ -3,3 +3,4 @@ export { Footer } from "./Footer";
 export { PunkAvatar } from "./PunkAvatar";
 export { PunkSection } from "./PunkSection";
 export { ProjectCard } from "./ProjectCard";
+export { ProjectThumbnail } from "./ProjectThumbnail";

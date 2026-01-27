@@ -45,6 +45,15 @@ name: Your Name
 twitter: your_twitter_handle
 website: https://your-website.com
 ---
+
+Write anything you want here! This content will appear on your punk's page.
+
+You can use **bold**, *italic*, [links](https://example.com), and more.
+
+- Bullet points
+- Code blocks
+- Images
+- Whatever you need!
 ```
 
 #### Punk Frontmatter Fields

@@ -43,11 +43,13 @@ function loadPunk(punkId: number): Punk | null {
   // Load punk metadata from index.md
   const indexPath = path.join(punkDir, "index.md");
   let punkData: PunkFrontmatter = {};
+  let punkBody: string | undefined;
 
   if (fs.existsSync(indexPath)) {
     const indexContent = fs.readFileSync(indexPath, "utf8");
-    const { data } = matter(indexContent);
+    const { data, content } = matter(indexContent);
     punkData = data as PunkFrontmatter;
+    punkBody = content.trim() || undefined;
   }
 
   // Load all project files (*.md except index.md)
@@ -66,11 +68,13 @@ function loadPunk(punkId: number): Punk | null {
       }
 
       const id = file.replace(/\.md$/, "");
+      const { content } = matter(fileContent);
 
       return {
         id,
         name: projectData.name,
         description: projectData.description,
+        body: content.trim() || undefined,
         thumbnail: projectData.thumbnail,
         url: projectData.url,
         launchDate: projectData.launchDate,
@@ -87,6 +91,7 @@ function loadPunk(punkId: number): Punk | null {
     name: punkData.name,
     twitter: punkData.twitter,
     website: punkData.website,
+    body: punkBody,
     projects,
   };
 }
@@ -148,5 +153,29 @@ export function getAllTags(): string[] {
 export function getProjectsByTag(tag: string) {
   return getAllProjects().filter((project) =>
     project.tags.some((t) => t.toLowerCase() === tag.toLowerCase())
+  );
+}
+
+export function getProjectById(punkId: number, projectId: string) {
+  const punk = getPunkById(punkId);
+  if (!punk) return undefined;
+
+  const project = punk.projects.find((p) => p.id === projectId);
+  if (!project) return undefined;
+
+  return {
+    ...project,
+    punkId: punk.id,
+    punkName: punk.name,
+    punkTwitter: punk.twitter,
+  };
+}
+
+export function getAllProjectParams() {
+  return PUNKS.flatMap((punk) =>
+    punk.projects.map((project) => ({
+      id: String(punk.id),
+      projectId: project.id,
+    }))
   );
 }

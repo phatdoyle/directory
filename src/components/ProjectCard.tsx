@@ -26,9 +26,7 @@ export function ProjectCard({
     <article className="pixel-card group flex flex-col overflow-hidden">
       {/* Thumbnail */}
       <Link
-        href={project.url}
-        target="_blank"
-        rel="noopener noreferrer"
+        href={`/punks/${punkId}/${project.id}`}
         className="relative aspect-video overflow-hidden border-b-4 border-foreground bg-punk-blue"
       >
         <ProjectThumbnail
@@ -43,9 +41,7 @@ export function ProjectCard({
         <div className="mb-2 flex items-start justify-between gap-2">
           <h3 className="font-bold uppercase tracking-wide">
             <Link
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`/punks/${punkId}/${project.id}`}
               className="hover:text-punk-pink"
             >
               {project.name}

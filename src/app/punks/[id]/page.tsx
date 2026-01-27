@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Markdown from "react-markdown";
 import { Header, Footer, PunkAvatar, ProjectCard } from "@/components";
 import { getPunkById, getAllPunks } from "@/data/punks";
 
@@ -120,6 +121,15 @@ export default async function PunkPage({ params }: PunkPageProps) {
             </div>
           </div>
         </section>
+
+        {/* Custom Content (from markdown) */}
+        {punk.body && (
+          <section className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+            <div className="prose prose-punk">
+              <Markdown>{punk.body}</Markdown>
+            </div>
+          </section>
+        )}
 
         {/* Projects Grid */}
         <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">

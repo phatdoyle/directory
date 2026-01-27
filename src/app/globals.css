@@ -132,3 +132,131 @@ html {
   background: var(--punk-pink);
   color: #fff;
 }
+
+/* Prose styles for markdown content */
+.prose {
+  color: var(--foreground);
+  line-height: 1.75;
+  max-width: 65ch;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: var(--foreground);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+}
+
+.prose h1 {
+  font-size: 2rem;
+}
+
+.prose h2 {
+  font-size: 1.5rem;
+}
+
+.prose h3 {
+  font-size: 1.25rem;
+}
+
+.prose p {
+  margin-bottom: 1.25em;
+}
+
+.prose a {
+  color: var(--punk-blue);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.prose a:hover {
+  color: var(--punk-pink);
+}
+
+.prose strong {
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.prose em {
+  font-style: italic;
+}
+
+.prose ul,
+.prose ol {
+  margin-bottom: 1.25em;
+  padding-left: 1.5em;
+}
+
+.prose ul {
+  list-style-type: disc;
+}
+
+.prose ol {
+  list-style-type: decimal;
+}
+
+.prose li {
+  margin-bottom: 0.5em;
+}
+
+.prose blockquote {
+  border-left: 4px solid var(--punk-blue);
+  padding-left: 1em;
+  margin: 1.5em 0;
+  font-style: italic;
+  color: var(--foreground);
+  opacity: 0.9;
+}
+
+.prose code {
+  background: var(--card-background);
+  border: 2px solid var(--foreground);
+  padding: 0.125em 0.375em;
+  font-size: 0.875em;
+  font-family: var(--font-mono), monospace;
+}
+
+.prose pre {
+  background: var(--card-background);
+  border: 4px solid var(--foreground);
+  padding: 1em;
+  margin: 1.5em 0;
+  overflow-x: auto;
+  font-size: 0.875em;
+  font-family: var(--font-mono), monospace;
+}
+
+.prose pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border: 4px solid var(--foreground);
+  margin: 1.5em 0;
+}
+
+.prose hr {
+  border: none;
+  border-top: 4px solid var(--foreground);
+  margin: 2em 0;
+}
+
+.prose-punk {
+  max-width: none;
+}
+
+.prose-lg {
+  font-size: 1.125rem;
+}
