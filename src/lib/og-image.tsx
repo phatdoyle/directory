@@ -16,7 +16,7 @@ interface OGImageProps {
 }
 
 function getPunkImageUrl(punkId: number) {
-  return `https://punks.art/api/punks/${punkId}?format=png&size=24&background=v2`;
+  return `https://punks.art/api/punks/${punkId}?format=png&size=240&background=v2`;
 }
 
 export async function generateOGImage(
