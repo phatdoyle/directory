@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Project } from "@/types";
+import { ProjectThumbnail } from "./ProjectThumbnail";
 
 interface ProjectCardProps {
   project: Project;
@@ -30,13 +30,10 @@ export function ProjectCard({
         rel="noopener noreferrer"
         className="relative aspect-video overflow-hidden border-b-4 border-foreground bg-punk-blue"
       >
-        <Image
-          src={project.thumbnail}
-          alt={project.name}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          unoptimized
+        <ProjectThumbnail
+          projectUrl={project.url}
+          projectName={project.name}
+          thumbnail={project.thumbnail}
         />
       </Link>
 

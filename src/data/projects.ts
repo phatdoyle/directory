@@ -14,40 +14,9 @@ import { PunksData } from "@/types";
  */
 
 export const punksData: PunksData = {
-  // Larva Labs / Yuga Labs Projects
-  0: {
-    id: 0,
-    name: "Larva Labs",
-    twitter: "larvalabs",
-    projects: [
-      {
-        id: "cryptopunks-app",
-        name: "CryptoPunks",
-        description:
-          "The original CryptoPunks marketplace and explorer.",
-        thumbnail: "https://pbs.twimg.com/profile_images/1506332416847269890/OJ8gQuG2_400x400.png",
-        url: "https://cryptopunks.app/",
-        launchDate: "2017-06-23",
-        tags: ["Marketplace", "Explorer", "Official"],
-        twitter: "cryptopaboryszofficial",
-      },
-      {
-        id: "brand-hub",
-        name: "CryptoPunks Brand Hub",
-        description:
-          "An archive and living source for project info and initiatives.",
-        thumbnail: "https://pbs.twimg.com/profile_images/1752127331748163584/ndmVfRhj_400x400.jpg",
-        url: "https://hub.cryptopunks.app/",
-        launchDate: "2023-01-01",
-        tags: ["Brand", "Archive", "Official"],
-        twitter: "yugalabs",
-      },
-    ],
-  },
-
-  // Gwendall's Projects
-  1: {
-    id: 1,
+  // Gwendall's Projects - Punk #2113
+  2113: {
+    id: 2113,
     name: "Gwendall",
     twitter: "gwendall",
     projects: [
@@ -64,7 +33,8 @@ export const punksData: PunksData = {
       {
         id: "punkmaker",
         name: "PunkMaker",
-        description: "Make your own punk with the original 24x24 pixel art style.",
+        description:
+          "Make your own punk with the original 24x24 pixel art style.",
         thumbnail: "https://punkmaker.xyz/logo.png",
         url: "https://punkmaker.xyz",
         launchDate: "2023-01-01",
@@ -74,7 +44,8 @@ export const punksData: PunksData = {
         id: "arepunksded",
         name: "Are Punks Ded?",
         description: "Answering the question on everyone's mind.",
-        thumbnail: "https://pbs.twimg.com/profile_images/1712093315795972097/ebLlmr2M_400x400.jpg",
+        thumbnail:
+          "https://pbs.twimg.com/profile_images/1712093315795972097/ebLlmr2M_400x400.jpg",
         url: "https://arepunksded.com",
         launchDate: "2023-10-01",
         tags: ["Community", "Fun"],
@@ -82,17 +53,16 @@ export const punksData: PunksData = {
     ],
   },
 
-  // Community Tools & Wrappers
-  2: {
-    id: 2,
+  // Niftynaut - Punk #2460
+  2460: {
+    id: 2460,
     name: "Niftynaut",
     twitter: "niftynaut",
     projects: [
       {
         id: "punks-wrapper",
         name: "Punks Wrapper",
-        description:
-          "A simpler interface for the WrappedPunks smart contract.",
+        description: "A simpler interface for the WrappedPunks smart contract.",
         thumbnail: "https://app.swap.kiwi/SwapKiwiCover.png",
         url: "https://punks.swap.kiwi",
         launchDate: "2021-01-01",
@@ -102,7 +72,8 @@ export const punksData: PunksData = {
         id: "punks-wtf",
         name: "Punks.wtf",
         description: "Explore punks colors and attributes visually.",
-        thumbnail: "https://pbs.twimg.com/profile_images/1648319453627547648/aKNoQe0Q_400x400.jpg",
+        thumbnail:
+          "https://pbs.twimg.com/profile_images/1648319453627547648/aKNoQe0Q_400x400.jpg",
         url: "https://punks.wtf",
         launchDate: "2022-01-01",
         tags: ["Explorer", "Colors", "Traits"],
@@ -110,261 +81,10 @@ export const punksData: PunksData = {
     ],
   },
 
-  // Wrapped Punks
-  3: {
-    id: 3,
-    projects: [
-      {
-        id: "wrapped-punks",
-        name: "Wrapped Punks",
-        description: "Turn your CryptoPunks into ERC721 tokens.",
-        thumbnail: "https://assets.bitdegree.org/crypto-tracker/dapp-logos/ethereum/wrapped-cryptopunks-logo.png",
-        url: "https://www.wrappedpunks.com/",
-        launchDate: "2020-09-01",
-        tags: ["Wrapper", "ERC-721", "DeFi"],
-      },
-    ],
-  },
-
-  // Open Source Community
-  4: {
-    id: 4,
-    name: "Gerald Bauer",
-    twitter: "geraldbauer",
-    projects: [
-      {
-        id: "punks-not-dead",
-        name: "(Crypto) Punk's Not Dead",
-        description:
-          "Open Source Tools & Scripts and Public Domain Artwork & Datasets for Punks.",
-        thumbnail: "https://avatars.githubusercontent.com/u/79600699?s=200&v=4",
-        url: "https://github.com/cryptopunksnotdead",
-        launchDate: "2021-01-01",
-        tags: ["Open Source", "Tools", "Datasets"],
-        github: "https://github.com/cryptopunksnotdead",
-      },
-    ],
-  },
-
-  // Arkaydeus Projects
-  5: {
-    id: 5,
-    name: "Arkaydeus",
-    twitter: "arkaydeus",
-    projects: [
-      {
-        id: "punklist",
-        name: "PunkList",
-        description: "The home of drops and whitelists for Punks.",
-        thumbnail: "https://pbs.twimg.com/profile_images/1697283234822758400/rX-XdbHc_400x400.jpg",
-        url: "https://www.punklist.xyz/",
-        launchDate: "2023-01-01",
-        tags: ["Drops", "Whitelists", "Community"],
-      },
-      {
-        id: "nft-meme-generator",
-        name: "NFT Meme Generator",
-        description: "Create memes with your punks.",
-        thumbnail: "https://pbs.twimg.com/profile_images/1697283234822758400/rX-XdbHc_400x400.jpg",
-        url: "https://www.nftmeme.pics/punks",
-        launchDate: "2023-01-01",
-        tags: ["Memes", "Fun", "Creation"],
-      },
-    ],
-  },
-
-  // Pat Doyle Projects
-  6: {
-    id: 6,
-    name: "Pat Doyle",
-    twitter: "doyle126",
-    projects: [
-      {
-        id: "punk-provenance",
-        name: "Punk Provenance Explorer",
-        description:
-          "Visualize the provenance of each punk as they move between wallets.",
-        thumbnail: "https://pbs.twimg.com/profile_images/1730233044626231296/sYynZCoq_400x400.jpg",
-        url: "https://punks.junkdrawer.wtf/",
-        launchDate: "2023-01-01",
-        tags: ["Provenance", "Visualization", "Data"],
-      },
-      {
-        id: "punkverse",
-        name: "PunkVerse",
-        description:
-          "Visualize the universe of wallets buying/selling/transfering punks.",
-        thumbnail: "https://pbs.twimg.com/profile_images/1730233044626231296/sYynZCoq_400x400.jpg",
-        url: "https://punkverse.junkdrawer.wtf/",
-        launchDate: "2023-01-01",
-        tags: ["Visualization", "Network", "Data"],
-      },
-    ],
-  },
-
-  // The Punk Animator
-  7: {
-    id: 7,
-    name: "The Punk Animator",
-    twitter: "ThePunkAnimator",
-    projects: [
-      {
-        id: "punk-builder",
-        name: "The Punk Builder",
-        description: "Build and customize your own punk with animations.",
-        thumbnail: "https://pbs.twimg.com/profile_images/1639192482960535558/gsS6wLsG_400x400.jpg",
-        url: "https://thepunkanimator.xyz/",
-        launchDate: "2023-01-01",
-        tags: ["Creation", "Animation", "Tool"],
-      },
-    ],
-  },
-
-  // IttyBits
-  8: {
-    id: 8,
-    name: "Jeremy.eth",
-    twitter: "posvar",
-    projects: [
-      {
-        id: "ittybits",
-        name: "IttyBits",
-        description:
-          "Each Cryptopunk constrained to 12x12 pixels, retaining original IDs and traits.",
-        thumbnail: "https://ittybits.xyz/ittybits.png",
-        url: "https://ittybits.xyz/",
-        launchDate: "2022-01-01",
-        tags: ["Derivative", "Art", "Pixels"],
-      },
-    ],
-  },
-
-  // Documentaries - Sherone
-  9: {
-    id: 9,
-    name: "Sherone.eth",
-    twitter: "Sherone33",
-    projects: [
-      {
-        id: "cryptopunks-origins",
-        name: "CryptoPunks Origins",
-        description:
-          "Chronicles the life and evolution of the CryptoPunks project.",
-        thumbnail: "https://pbs.twimg.com/profile_images/1661814409537224713/T1Rl7eyd_400x400.jpg",
-        url: "https://cryptopunksorigins.com/",
-        launchDate: "2023-01-01",
-        tags: ["Documentary", "Film", "History"],
-      },
-      {
-        id: "punk-secrets",
-        name: "Punk Secrets",
-        description: "Find out what your punk is hiding.",
-        thumbnail: "https://pbs.twimg.com/profile_images/1661814409537224713/T1Rl7eyd_400x400.jpg",
-        url: "https://punksecrets.art/",
-        launchDate: "2023-01-01",
-        tags: ["Documentary", "Mystery", "Art"],
-      },
-    ],
-  },
-
-  // What The Punk Documentary
-  10: {
-    id: 10,
-    name: "Hervé Martin-Delpierre",
-    twitter: "MartinDelpierre",
-    projects: [
-      {
-        id: "what-the-punk",
-        name: "What The Punk",
-        description:
-          "Independent documentary on the amazing destiny of CryptoPunks and the crypto-art scene.",
-        thumbnail: "https://pbs.twimg.com/profile_images/1728116867191934976/OKnCNSFT_400x400.jpg",
-        url: "https://twitter.com/WTP_Movie",
-        launchDate: "2023-01-01",
-        tags: ["Documentary", "Film", "Culture"],
-        twitter: "WTP_Movie",
-      },
-    ],
-  },
-
-  // NFT Now Series
-  11: {
-    id: 11,
-    name: "NFT Now",
-    twitter: "nftnow",
-    projects: [
-      {
-        id: "punks-as-told",
-        name: "Punks As Told By CryptoPunks",
-        description:
-          "Exclusive interviews with pioneers and influencers who shaped CryptoPunks history.",
-        thumbnail: "https://nftnow.com/wp-content/uploads/2023/09/cryptopunks-thumbnail.jpg",
-        url: "https://nftnow.com/punks-as-told-by-cryptopunks/",
-        launchDate: "2023-09-01",
-        tags: ["Documentary", "Interviews", "Media"],
-      },
-    ],
-  },
-
-  // Community Projects
-  12: {
-    id: 12,
-    name: "Sean Bonner",
-    twitter: "seanbonner",
-    projects: [
-      {
-        id: "burned-punks",
-        name: "Burned Punks",
-        description: "There were 10,000 Cryptopunks. 9,988 remain.",
-        thumbnail: "https://pbs.twimg.com/profile_images/1719568886130245632/jjwZHHAm_400x400.jpg",
-        url: "https://burnedpunks.com",
-        launchDate: "2023-01-01",
-        tags: ["Community", "Tracker", "History"],
-      },
-    ],
-  },
-
-  // ForeverPunks
-  13: {
-    id: 13,
-    name: "Mr Forever",
-    twitter: "mrforevernft",
-    projects: [
-      {
-        id: "foreverpunks",
-        name: "ForeverPunks",
-        description: "Find your Forever Punk.",
-        thumbnail: "https://cdn.punksclub.io/media/avatars/-pbFDj9HdjLw4KmXYQcAdw.png.500x500_q99_crop-smart.jpg",
-        url: "https://foreverpunks.com/",
-        launchDate: "2023-01-01",
-        tags: ["Community", "Identity"],
-      },
-    ],
-  },
-
-  // Education
-  14: {
-    id: 14,
-    name: "Jalil",
-    twitter: "jalil_eth",
-    projects: [
-      {
-        id: "understanding-cryptopunks",
-        name: "Understanding CryptoPunks",
-        description:
-          "A little guide that explores the wild phenomenon of CryptoPunks.",
-        thumbnail: "https://pbs.twimg.com/profile_images/1755582763745292288/APKWetyO_400x400.jpg",
-        url: "https://understanding-cryptopunks.vv.xyz/",
-        launchDate: "2024-01-01",
-        tags: ["Guide", "Education", "History"],
-      },
-    ],
-  },
-
-  // Cryptopunks.eth.limo
-  15: {
-    id: 15,
-    name: "Beautifulnfts.eth",
+  // BeautifulNFTs - Punk #3900
+  3900: {
+    id: 3900,
+    name: "BeautifulNFTs",
     twitter: "beautiful_nfts_",
     projects: [
       {
@@ -379,6 +99,272 @@ export const punksData: PunksData = {
       },
     ],
   },
+
+  // Sherone - Punk #5230
+  5230: {
+    id: 5230,
+    name: "Sherone",
+    twitter: "Sherone33",
+    projects: [
+      {
+        id: "cryptopunks-origins",
+        name: "CryptoPunks Origins",
+        description:
+          "Chronicles the life and evolution of the CryptoPunks project.",
+        thumbnail:
+          "https://pbs.twimg.com/profile_images/1661814409537224713/T1Rl7eyd_400x400.jpg",
+        url: "https://cryptopunksorigins.com/",
+        launchDate: "2023-01-01",
+        tags: ["Documentary", "Film", "History"],
+      },
+      {
+        id: "punk-secrets",
+        name: "Punk Secrets",
+        description: "Find out what your punk is hiding.",
+        thumbnail:
+          "https://pbs.twimg.com/profile_images/1661814409537224713/T1Rl7eyd_400x400.jpg",
+        url: "https://punksecrets.art/",
+        launchDate: "2023-01-01",
+        tags: ["Documentary", "Mystery", "Art"],
+      },
+    ],
+  },
+
+  // Arkaydeus - Punk #6843
+  6843: {
+    id: 6843,
+    name: "Arkaydeus",
+    twitter: "arkaydeus",
+    projects: [
+      {
+        id: "punklist",
+        name: "PunkList",
+        description: "The home of drops and whitelists for Punks.",
+        thumbnail:
+          "https://pbs.twimg.com/profile_images/1697283234822758400/rX-XdbHc_400x400.jpg",
+        url: "https://www.punklist.xyz/",
+        launchDate: "2023-01-01",
+        tags: ["Drops", "Whitelists", "Community"],
+      },
+      {
+        id: "nft-meme-generator",
+        name: "NFT Meme Generator",
+        description: "Create memes with your punks.",
+        thumbnail:
+          "https://pbs.twimg.com/profile_images/1697283234822758400/rX-XdbHc_400x400.jpg",
+        url: "https://www.nftmeme.pics/punks",
+        launchDate: "2023-01-01",
+        tags: ["Memes", "Fun", "Creation"],
+      },
+    ],
+  },
+
+  // Matt Hall (Larva Labs co-founder) - Punk #8070
+  8070: {
+    id: 8070,
+    name: "Matt Hall",
+    twitter: "matthall2000",
+    projects: [
+      {
+        id: "cryptopunks-app",
+        name: "CryptoPunks",
+        description: "The original CryptoPunks marketplace and explorer.",
+        thumbnail:
+          "https://pbs.twimg.com/profile_images/1506332416847269890/OJ8gQuG2_400x400.png",
+        url: "https://cryptopunks.app/",
+        launchDate: "2017-06-23",
+        tags: ["Marketplace", "Explorer", "Official"],
+        twitter: "cryptopunks",
+      },
+      {
+        id: "brand-hub",
+        name: "CryptoPunks Brand Hub",
+        description:
+          "An archive and living source for project info and initiatives.",
+        thumbnail:
+          "https://pbs.twimg.com/profile_images/1752127331748163584/ndmVfRhj_400x400.jpg",
+        url: "https://hub.cryptopunks.app/",
+        launchDate: "2023-01-01",
+        tags: ["Brand", "Archive", "Official"],
+        twitter: "yugalabs",
+      },
+    ],
+  },
+
+  // ===================================================================
+  // PROJECTS BELOW NEED PUNK ID VERIFICATION
+  // If you know the punk ID for any of these builders, please submit a PR!
+  // ===================================================================
+
+  // Wrapped Punks - TODO: Find owner's punk ID
+  // 3: {
+  //   id: 3,
+  //   projects: [
+  //     {
+  //       id: "wrapped-punks",
+  //       name: "Wrapped Punks",
+  //       description: "Turn your CryptoPunks into ERC721 tokens.",
+  //       thumbnail: "https://assets.bitdegree.org/crypto-tracker/dapp-logos/ethereum/wrapped-cryptopunks-logo.png",
+  //       url: "https://www.wrappedpunks.com/",
+  //       launchDate: "2020-09-01",
+  //       tags: ["Wrapper", "ERC-721", "DeFi"],
+  //     },
+  //   ],
+  // },
+
+  // Gerald Bauer - TODO: Find punk ID
+  // {
+  //   name: "Gerald Bauer",
+  //   twitter: "geraldbauer",
+  //   projects: [
+  //     {
+  //       id: "punks-not-dead",
+  //       name: "(Crypto) Punk's Not Dead",
+  //       description: "Open Source Tools & Scripts and Public Domain Artwork & Datasets for Punks.",
+  //       url: "https://github.com/cryptopunksnotdead",
+  //       launchDate: "2021-01-01",
+  //       tags: ["Open Source", "Tools", "Datasets"],
+  //       github: "https://github.com/cryptopunksnotdead",
+  //     },
+  //   ],
+  // },
+
+  // Pat Doyle - TODO: Find punk ID
+  // {
+  //   name: "Pat Doyle",
+  //   twitter: "doyle126",
+  //   projects: [
+  //     {
+  //       id: "punk-provenance",
+  //       name: "Punk Provenance Explorer",
+  //       description: "Visualize the provenance of each punk as they move between wallets.",
+  //       url: "https://punks.junkdrawer.wtf/",
+  //       launchDate: "2023-01-01",
+  //       tags: ["Provenance", "Visualization", "Data"],
+  //     },
+  //     {
+  //       id: "punkverse",
+  //       name: "PunkVerse",
+  //       description: "Visualize the universe of wallets buying/selling/transfering punks.",
+  //       url: "https://punkverse.junkdrawer.wtf/",
+  //       launchDate: "2023-01-01",
+  //       tags: ["Visualization", "Network", "Data"],
+  //     },
+  //   ],
+  // },
+
+  // The Punk Animator - TODO: Find punk ID
+  // {
+  //   name: "The Punk Animator",
+  //   twitter: "ThePunkAnimator",
+  //   projects: [
+  //     {
+  //       id: "punk-builder",
+  //       name: "The Punk Builder",
+  //       description: "Build and customize your own punk with animations.",
+  //       url: "https://thepunkanimator.xyz/",
+  //       launchDate: "2023-01-01",
+  //       tags: ["Creation", "Animation", "Tool"],
+  //     },
+  //   ],
+  // },
+
+  // Jeremy.eth / IttyBits - TODO: Find punk ID
+  // {
+  //   name: "Jeremy.eth",
+  //   twitter: "posvar",
+  //   projects: [
+  //     {
+  //       id: "ittybits",
+  //       name: "IttyBits",
+  //       description: "Each Cryptopunk constrained to 12x12 pixels, retaining original IDs and traits.",
+  //       url: "https://ittybits.xyz/",
+  //       launchDate: "2022-01-01",
+  //       tags: ["Derivative", "Art", "Pixels"],
+  //     },
+  //   ],
+  // },
+
+  // Hervé Martin-Delpierre - TODO: Find punk ID
+  // {
+  //   name: "Hervé Martin-Delpierre",
+  //   twitter: "MartinDelpierre",
+  //   projects: [
+  //     {
+  //       id: "what-the-punk",
+  //       name: "What The Punk",
+  //       description: "Independent documentary on the amazing destiny of CryptoPunks and the crypto-art scene.",
+  //       url: "https://twitter.com/WTP_Movie",
+  //       launchDate: "2023-01-01",
+  //       tags: ["Documentary", "Film", "Culture"],
+  //       twitter: "WTP_Movie",
+  //     },
+  //   ],
+  // },
+
+  // Sean Bonner - TODO: Find punk ID
+  // {
+  //   name: "Sean Bonner",
+  //   twitter: "seanbonner",
+  //   projects: [
+  //     {
+  //       id: "burned-punks",
+  //       name: "Burned Punks",
+  //       description: "There were 10,000 Cryptopunks. 9,988 remain.",
+  //       url: "https://burnedpunks.com",
+  //       launchDate: "2023-01-01",
+  //       tags: ["Community", "Tracker", "History"],
+  //     },
+  //   ],
+  // },
+
+  // Mr Forever - TODO: Find punk ID
+  // {
+  //   name: "Mr Forever",
+  //   twitter: "mrforevernft",
+  //   projects: [
+  //     {
+  //       id: "foreverpunks",
+  //       name: "ForeverPunks",
+  //       description: "Find your Forever Punk.",
+  //       url: "https://foreverpunks.com/",
+  //       launchDate: "2023-01-01",
+  //       tags: ["Community", "Identity"],
+  //     },
+  //   ],
+  // },
+
+  // Jalil - TODO: Find punk ID
+  // {
+  //   name: "Jalil",
+  //   twitter: "jalil_eth",
+  //   projects: [
+  //     {
+  //       id: "understanding-cryptopunks",
+  //       name: "Understanding CryptoPunks",
+  //       description: "A little guide that explores the wild phenomenon of CryptoPunks.",
+  //       url: "https://understanding-cryptopunks.vv.xyz/",
+  //       launchDate: "2024-01-01",
+  //       tags: ["Guide", "Education", "History"],
+  //     },
+  //   ],
+  // },
+
+  // NFT Now - Media company, not punk owners
+  // {
+  //   name: "NFT Now",
+  //   twitter: "nftnow",
+  //   projects: [
+  //     {
+  //       id: "punks-as-told",
+  //       name: "Punks As Told By CryptoPunks",
+  //       description: "Exclusive interviews with pioneers and influencers who shaped CryptoPunks history.",
+  //       url: "https://nftnow.com/punks-as-told-by-cryptopunks/",
+  //       launchDate: "2023-09-01",
+  //       tags: ["Documentary", "Interviews", "Media"],
+  //     },
+  //   ],
+  // },
 };
 
 // Helper functions

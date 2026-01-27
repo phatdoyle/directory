@@ -2,7 +2,7 @@ export interface Project {
   id: string;
   name: string;
   description: string;
-  thumbnail: string;
+  thumbnail?: string; // Optional - will auto-fetch from URL's OG image if not provided
   url: string;
   launchDate: string;
   tags: string[];
