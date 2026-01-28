@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Markdown from "react-markdown";
-import { Header, Footer, PunkAvatar, ProjectCard } from "@/components";
+import { Header, Footer, PunkAvatar, ProjectCard, Button } from "@/components";
 import { getPunkById, getAllPunks } from "@/data/punks";
 
 interface PunkPageProps {
@@ -62,7 +62,7 @@ export default async function PunkPage({ params }: PunkPageProps) {
 
       <main className="flex-1">
         {/* Punk Header */}
-        <section className="border-b-4 border-foreground bg-punk-blue">
+        <section className="bg-punk-blue">
           <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
             <Link
               href="/"
@@ -79,42 +79,45 @@ export default async function PunkPage({ params }: PunkPageProps) {
               />
 
               <div className="flex-1">
-                <h1 className="text-3xl font-bold uppercase tracking-wider text-white sm:text-4xl">
+                <h1 className="font-pixel-custom text-3xl uppercase tracking-wider text-white sm:text-4xl drop-shadow-[2px_2px_0_rgba(0,0,0,0.3)]">
                   {name}
                 </h1>
-                <p className="mt-1 text-lg text-white/60">
+                <p className="mt-1 text-lg text-white/60 font-mono">
                   CryptoPunk #{punkId}
                 </p>
 
-                <div className="mt-4 flex flex-wrap items-center gap-4">
+                <div className="mt-6 flex flex-wrap items-center gap-3">
                   {punk.twitter && (
-                    <a
+                    <Button
                       href={`https://x.com/${punk.twitter}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="border-4 border-white bg-white px-4 py-2 text-sm font-bold uppercase tracking-wider text-punk-blue transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0_0_rgba(0,0,0,0.3)]"
+                      variant="white"
+                      size="sm"
+                      className="text-punk-blue"
                     >
                       @{punk.twitter}
-                    </a>
+                    </Button>
                   )}
                   {punk.website && (
-                    <a
+                    <Button
                       href={punk.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="border-4 border-white bg-punk-pink px-4 py-2 text-sm font-bold uppercase tracking-wider text-white transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0_0_rgba(0,0,0,0.3)]"
+                      variant="secondary"
+                      size="sm"
                     >
                       Website
-                    </a>
+                    </Button>
                   )}
                 </div>
               </div>
 
-              <div className="border-4 border-white bg-white px-6 py-4 text-center">
-                <div className="text-4xl font-bold text-punk-blue">
+              <div className="bg-white/10 px-6 py-4 text-center backdrop-blur-sm rounded-lg">
+                <div className="text-4xl font-bold text-white">
                   {punk.projects.length}
                 </div>
-                <div className="text-sm font-bold uppercase tracking-wider text-punk-blue">
+                <div className="text-xs font-bold uppercase tracking-wider text-white/80 font-pixel">
                   Project{punk.projects.length !== 1 ? "s" : ""}
                 </div>
               </div>

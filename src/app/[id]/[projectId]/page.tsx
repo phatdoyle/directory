@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Markdown from "react-markdown";
-import { Header, Footer, PunkAvatar, ProjectThumbnail } from "@/components";
+import { Header, Footer, PunkAvatar, ProjectThumbnail, Button } from "@/components";
 import { XIcon, GitHubIcon, DiscordIcon } from "@/components/icons";
 import { getProjectById, getAllProjectParams } from "@/data/punks";
 
@@ -66,7 +66,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       <main className="flex-1">
         {/* Project Header */}
-        <section className="border-b-4 border-foreground bg-punk-blue">
+        <section className="bg-punk-blue">
           <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
             <Link
               href={`/${punkId}`}
@@ -77,7 +77,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
             <div className="flex flex-col gap-8 lg:flex-row lg:items-start">
               {/* Thumbnail */}
-              <div className="relative aspect-video w-full max-w-md overflow-hidden border-4 border-white lg:w-96">
+              <div className="relative aspect-video w-full max-w-md overflow-hidden bg-punk-blue-light lg:w-96 pixel-shadow">
                 <ProjectThumbnail
                   projectUrl={project.url}
                   projectName={project.name}
@@ -87,66 +87,78 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
               {/* Info */}
               <div className="flex-1">
-                <h1 className="text-3xl font-bold uppercase tracking-wider text-white sm:text-4xl">
+                <h1 className="font-pixel-custom text-3xl uppercase tracking-wider text-white sm:text-4xl drop-shadow-[2px_2px_0_rgba(0,0,0,0.3)]">
                   {project.name}
                 </h1>
-                <p className="mt-2 text-lg text-white/80">
+                <p className="mt-4 text-lg text-white/80 leading-relaxed">
                   {project.description}
                 </p>
 
-                <div className="mt-4 flex flex-wrap items-center gap-4">
-                  <a
+                <div className="mt-6 flex flex-wrap items-center gap-3">
+                  <Button
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="border-4 border-white bg-white px-6 py-3 text-sm font-bold uppercase tracking-wider text-punk-blue transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0_0_rgba(0,0,0,0.3)]"
+                    variant="white"
+                    size="md"
+                    className="text-punk-blue"
                   >
                     Visit Project →
-                  </a>
+                  </Button>
 
                   {project.twitter && (
-                    <a
+                    <Button
                       href={`https://x.com/${project.twitter}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 border-4 border-white bg-punk-pink px-4 py-3 text-sm font-bold text-white transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0_0_rgba(0,0,0,0.3)]"
+                      variant="secondary"
+                      size="md"
+                      className="gap-2"
                     >
                       <XIcon className="h-4 w-4" />
                       @{project.twitter}
-                    </a>
+                    </Button>
                   )}
 
                   {project.github && (
-                    <a
+                    <Button
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 border-4 border-white px-4 py-3 text-sm font-bold text-white transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:bg-white/10"
+                      variant="outline"
+                      size="md"
+                      className="gap-2"
                     >
                       <GitHubIcon className="h-4 w-4" />
                       GitHub
-                    </a>
+                    </Button>
                   )}
 
                   {project.discord && (
-                    <a
+                    <Button
                       href={project.discord}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 border-4 border-white px-4 py-3 text-sm font-bold text-white transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:bg-white/10"
+                      variant="outline"
+                      size="md"
+                      className="gap-2"
                     >
                       <DiscordIcon className="h-4 w-4" />
                       Discord
-                    </a>
+                    </Button>
                   )}
                 </div>
 
                 {/* Tags */}
-                <div className="mt-6 flex flex-wrap gap-2">
+                <div className="mt-8 flex flex-wrap gap-2">
                   {project.tags.map((tag, i) => (
                     <span
                       key={tag}
-                      className={`pixel-tag ${i % 2 === 0 ? "border-white bg-white text-punk-blue" : "border-white bg-punk-pink text-white"}`}
+                      className={`pixel-tag ${
+                        i % 2 === 0 
+                          ? "bg-white text-punk-blue" 
+                          : "bg-punk-pink text-white"
+                      }`}
                     >
                       {tag}
                     </span>
@@ -154,13 +166,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </div>
 
                 {/* Meta */}
-                <div className="mt-6 flex items-center gap-6 text-sm text-white/60">
+                <div className="mt-8 flex items-center gap-6 text-sm text-white/60 font-mono">
                   <span>Launched {formattedDate}</span>
                   <Link
                     href={`/${punkId}`}
-                    className="flex items-center gap-2 hover:text-white"
+                    className="flex items-center gap-2 hover:text-white transition-colors"
                   >
-                    <PunkAvatar punkId={punkId} size={24} />
+                    <PunkAvatar punkId={punkId} size={24} className="!border-0" />
                     <span>by {project.punkName || `Punk #${punkId}`}</span>
                   </Link>
                 </div>

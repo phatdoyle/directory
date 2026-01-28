@@ -18,7 +18,7 @@ export function SafeImage({
 
   if (hasError) {
     return (
-      <div className="absolute inset-0 flex items-center justify-center bg-punk-blue">
+      <div className="absolute inset-0 flex items-center justify-center bg-punk-blue-light">
         <div className="flex flex-col items-center gap-2 text-white opacity-60">
           <BrokenImageIcon className="h-8 w-8" />
           {fallbackText && (

@@ -9,35 +9,32 @@ interface PunkSectionProps {
 
 export function PunkSection({ punk }: PunkSectionProps) {
   return (
-    <section className="py-10">
+    <section className="py-8">
       {/* Punk Header */}
-      <div className="mb-8 flex items-center gap-4">
-        <Link href={`/${punk.id}`} className="group">
+      <div className="mb-6 flex items-center gap-4">
+        <Link href={`/${punk.id}`} className="group relative">
           <PunkAvatar
             punkId={punk.id}
-            size={64}
+            size={56}
             className="transition-all group-hover:translate-x-[-2px] group-hover:translate-y-[-2px] group-hover:shadow-[4px_4px_0_0_var(--foreground)]"
           />
         </Link>
         <div>
-          <Link href={`/${punk.id}`} className="group">
-            <h2 className="text-xl font-bold uppercase tracking-wider group-hover:text-punk-pink">
+          <Link href={`/${punk.id}`} className="group flex items-baseline gap-3">
+            <h2 className="text-xl font-bold uppercase tracking-wider group-hover:text-punk-pink transition-colors">
               {punk.name || `Punk #${punk.id}`}
             </h2>
-          </Link>
-          <div className="flex items-center gap-3 text-sm font-medium opacity-60">
-            <Link
-              href={`/${punk.id}`}
-              className="hover:text-punk-blue hover:opacity-100"
-            >
+            <span className="text-sm font-medium opacity-60 group-hover:text-punk-blue group-hover:opacity-100 transition-all">
               #{punk.id}
-            </Link>
+            </span>
+          </Link>
+          <div className="flex items-center gap-3 text-sm font-medium opacity-60 mt-1">
             {punk.twitter && (
               <a
                 href={`https://x.com/${punk.twitter}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-punk-pink hover:opacity-100"
+                className="hover:text-punk-pink hover:opacity-100 transition-colors"
               >
                 @{punk.twitter}
               </a>
@@ -45,7 +42,7 @@ export function PunkSection({ punk }: PunkSectionProps) {
           </div>
         </div>
         <div className="ml-auto">
-          <span className="pixel-tag pixel-tag-blue">
+          <span className="pixel-tag bg-neutral-100 text-neutral-500">
             {punk.projects.length} project
             {punk.projects.length !== 1 ? "s" : ""}
           </span>
@@ -53,7 +50,7 @@ export function PunkSection({ punk }: PunkSectionProps) {
       </div>
 
       {/* Projects Grid */}
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {punk.projects.map((project) => (
           <ProjectCard key={project.id} project={project} punkId={punk.id} />
         ))}

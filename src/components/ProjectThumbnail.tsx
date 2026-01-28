@@ -24,7 +24,7 @@ export function ProjectThumbnail({
 
   if (loading) {
     return (
-      <div className="absolute inset-0 flex animate-pulse items-center justify-center bg-punk-blue">
+      <div className="absolute inset-0 flex animate-pulse items-center justify-center bg-punk-blue-light">
         <div className="h-12 w-12 border-4 border-white opacity-40" />
       </div>
     );
@@ -33,7 +33,7 @@ export function ProjectThumbnail({
   if (!imageSrc) {
     // Fallback: show project initial
     return (
-      <div className="absolute inset-0 flex items-center justify-center bg-punk-blue">
+      <div className="absolute inset-0 flex items-center justify-center bg-punk-blue-light">
         <span className="text-6xl font-black uppercase text-white opacity-60">
           {projectName.charAt(0)}
         </span>
