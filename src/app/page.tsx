@@ -1,15 +1,12 @@
 import Link from "next/link";
 import { Header, Footer, PunkSection, Button } from "@/components";
-import PUNKS, { getAllPunks, getAllTags } from "@/data/punks";
+import PUNKS, { getAllPunks, getAllTags, PROJECTS, getProjectsByPunk } from "@/data/punks";
 import { SITE_NAME, SITE_TAGLINE } from "@/lib/constants";
 
 export default function HomePage() {
   const punkIds = getAllPunks();
   const allTags = getAllTags();
-  const totalProjects = PUNKS.reduce(
-    (acc, punk) => acc + punk.projects.length,
-    0
-  );
+  const totalProjects = PROJECTS.length;
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -66,9 +63,11 @@ export default function HomePage() {
 
         {/* Projects by Punk */}
         <div className="mx-auto max-w-7xl divide-y-2 divide-foreground/20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-neutral-900">
-          {PUNKS.map((punk) => (
-            <PunkSection key={punk.id} punk={punk} />
-          ))}
+          {PUNKS.map((punk) => {
+            const projects = getProjectsByPunk(punk.id);
+            if (projects.length === 0) return null;
+            return <PunkSection key={punk.id} punk={punk} projects={projects} />;
+          })}
         </div>
 
         {/* CTA Section */}

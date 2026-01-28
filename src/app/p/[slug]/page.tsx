@@ -4,22 +4,24 @@ import Link from "next/link";
 import Markdown from "react-markdown";
 import { Header, Footer, PunkAvatar, ProjectThumbnail, Button } from "@/components";
 import { XIcon, GitHubIcon, DiscordIcon } from "@/components/icons";
-import { getProjectById, getAllProjectParams } from "@/data/punks";
+import { getProjectById, getAllProjects, getProjectCreators } from "@/data/punks";
 
 interface ProjectPageProps {
-  params: Promise<{ id: string; projectId: string }>;
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  return getAllProjectParams();
+  const projects = getAllProjects();
+  return projects.map((project) => ({
+    slug: project.id,
+  }));
 }
 
 export async function generateMetadata({
   params,
 }: ProjectPageProps): Promise<Metadata> {
-  const { id, projectId } = await params;
-  const punkId = parseInt(id, 10);
-  const project = getProjectById(punkId, projectId);
+  const { slug } = await params;
+  const project = getProjectById(slug);
 
   if (!project) {
     return {
@@ -43,13 +45,14 @@ export async function generateMetadata({
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
-  const { id, projectId } = await params;
-  const punkId = parseInt(id, 10);
-  const project = getProjectById(punkId, projectId);
+  const { slug } = await params;
+  const project = getProjectById(slug);
 
   if (!project) {
     notFound();
   }
+
+  const creators = getProjectCreators(project);
 
   const formattedDate = new Date(project.launchDate).toLocaleDateString(
     "en-US",
@@ -69,10 +72,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <section className="bg-punk-blue">
           <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
             <Link
-              href={`/${punkId}`}
+              href="/"
               className="mb-6 inline-flex items-center gap-2 text-base font-bold uppercase tracking-wider text-white/80 transition-colors hover:text-white"
             >
-              ← Back to Punk #{punkId}
+              ← Back
             </Link>
 
             <div className="flex flex-col gap-8 lg:flex-row lg:items-start">
@@ -155,8 +158,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     <span
                       key={tag}
                       className={`pixel-tag ${
-                        i % 2 === 0 
-                          ? "bg-white text-punk-blue" 
+                        i % 2 === 0
+                          ? "bg-white text-punk-blue"
                           : "bg-punk-pink text-white"
                       }`}
                     >
@@ -166,15 +169,22 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </div>
 
                 {/* Meta */}
-                  <div className="mt-8 flex items-center gap-6 text-base text-white/60 font-mono">
+                <div className="mt-8 flex flex-wrap items-center gap-6 text-base text-white/60 font-mono">
                   <span>Launched {formattedDate}</span>
-                  <Link
-                    href={`/${punkId}`}
-                    className="flex items-center gap-2 hover:text-white transition-colors"
-                  >
-                    <PunkAvatar punkId={punkId} size={24} className="!border-0" />
-                    <span>by {project.punkName || `Punk #${punkId}`}</span>
-                  </Link>
+                  <div className="flex items-center gap-2">
+                    <span>by</span>
+                    {creators.map((creator, i) => (
+                      <Link
+                        key={creator.id}
+                        href={`/${creator.id}`}
+                        className="flex items-center gap-1 hover:text-white transition-colors"
+                      >
+                        <PunkAvatar punkId={creator.id} size={24} className="border-0!" />
+                        <span>{creator.name || `#${creator.id}`}</span>
+                        {i < creators.length - 1 && <span>,</span>}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

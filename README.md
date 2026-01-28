@@ -22,18 +22,18 @@ madebypunks/
 ├── content/
 │   ├── pages/                    # Static pages (markdown)
 │   │   └── add.md                # "Add Your Project" page content
-│   └── punks/
-│       └── [punkId]/             # One folder per punk (e.g., 2113/)
-│           ├── index.md          # Punk profile & metadata
-│           └── [project].md      # One file per project
+│   ├── punks/                    # Punk profiles
+│   │   ├── 2113.md               # One file per punk
+│   │   ├── 8070.md
+│   │   └── ...
+│   └── projects/                 # Projects
+│       ├── punkcam.md            # One file per project
+│       ├── cryptopunks-app.md
+│       └── ...
 ├── public/
 │   └── projects/                 # Project thumbnail images
 ├── src/
 │   ├── app/                      # Next.js App Router pages
-│   │   ├── add/                  # /add page
-│   │   └── punks/
-│   │       └── [id]/             # /punks/[id] page
-│   │           └── [projectId]/  # /punks/[id]/[projectId] page
 │   ├── components/               # React components
 │   ├── data/
 │   │   └── punks.ts              # Data loader (reads content/ at build time)
@@ -44,7 +44,7 @@ madebypunks/
 
 ## How It Works
 
-1. All punk and project data is stored as **markdown files** in `content/punks/`
+1. All punk and project data is stored as **markdown files** in `content/punks/` and `content/projects/`
 2. At build time, `src/data/punks.ts` reads all markdown files and parses the YAML frontmatter
 3. Pages are statically generated for each punk and project
 4. No database, no API, no runtime data fetching
@@ -58,13 +58,9 @@ git clone https://github.com/YOUR_USERNAME/madebypunks.git
 cd madebypunks
 ```
 
-### 2. Create Your Punk Folder
+### 2. Create Your Punk File
 
-```bash
-mkdir -p content/punks/YOUR_PUNK_ID
-```
-
-### 3. Add Your Profile (`index.md`)
+Create `content/punks/YOUR_PUNK_ID.md`:
 
 ```md
 ---
@@ -73,7 +69,7 @@ twitter: your_handle
 website: https://your-site.com
 ---
 
-Write anything you want here. This is your space.
+Write anything you want here. This is your MySpace page.
 
 Share your story, your vision, whatever. Markdown is supported.
 ```
@@ -86,9 +82,13 @@ Share your story, your vision, whatever. Markdown is supported.
 | `twitter` | No | Twitter/X handle (without @) |
 | `website` | No | Personal website URL |
 
-### 4. Add Your Projects
+The content below the frontmatter is your bio - write whatever you want!
 
-Create a file for each project (e.g., `my-project.md`):
+### 3. Add Your Projects
+
+Create `content/projects/your-project-slug.md`:
+
+> **Important:** The filename becomes the URL slug. Make sure it's unique!
 
 ```md
 ---
@@ -100,12 +100,15 @@ launchDate: 2024-01-15
 tags:
   - Tool
   - Art
+creators:
+  - 2113
+  - 5072
 twitter: project_handle
 github: https://github.com/user/repo
 discord: https://discord.gg/invite
 ---
 
-Optional longer description in markdown.
+Optional longer description in markdown. Tell the story of your project!
 ```
 
 **Fields:**
@@ -117,13 +120,15 @@ Optional longer description in markdown.
 | `url` | Yes | Project URL |
 | `launchDate` | Yes | Launch date (YYYY-MM-DD) |
 | `tags` | Yes | Array of tags |
+| `creators` | Yes | Array of punk IDs who built this |
 | `thumbnail` | No | Path to thumbnail (e.g., `/projects/my-project.png`) |
 | `twitter` | No | Project's Twitter handle |
 | `github` | No | GitHub repository URL |
 | `discord` | No | Discord invite URL |
 | `hidden` | No | Set to `true` to hide from listings |
+| `ded` | No | Set to `true` if the project is dead/discontinued |
 
-### 5. Add Thumbnail (Optional)
+### 4. Add Thumbnail (Optional)
 
 Place your project image in `public/projects/`:
 
@@ -133,7 +138,7 @@ public/projects/my-project.png
 
 Recommended size: **1200x630px** (OG image dimensions).
 
-### 6. Submit PR
+### 5. Submit PR
 
 ```bash
 git add .
@@ -142,6 +147,18 @@ git push origin main
 ```
 
 Then open a pull request. A maintainer will review and merge.
+
+## Multiple Creators
+
+Projects can have multiple creators! Just add all the punk IDs:
+
+```yaml
+creators:
+  - 8070  # Matt Hall
+  - 5072  # John Watkinson
+```
+
+The project will appear on both punk profile pages.
 
 ## Development
 

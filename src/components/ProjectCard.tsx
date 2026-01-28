@@ -5,13 +5,11 @@ import { XIcon, GitHubIcon, DiscordIcon } from "./icons";
 
 interface ProjectCardProps {
   project: Project;
-  punkId: number;
   showPunk?: boolean;
 }
 
 export function ProjectCard({
   project,
-  punkId,
   showPunk = false,
 }: ProjectCardProps) {
   const formattedDate = new Date(project.launchDate).toLocaleDateString(
@@ -26,7 +24,7 @@ export function ProjectCard({
     <article className="pixel-card group flex flex-col overflow-hidden h-full">
       {/* Thumbnail */}
       <Link
-        href={`/${punkId}/${project.id}`}
+        href={`/p/${project.id}`}
         className="relative aspect-video overflow-hidden bg-punk-blue"
       >
         <ProjectThumbnail
@@ -41,7 +39,7 @@ export function ProjectCard({
         <div className="mb-2 flex items-start justify-between gap-2">
           <h3 className="text-lg font-bold uppercase tracking-wide leading-tight">
             <Link
-              href={`/${punkId}/${project.id}`}
+              href={`/p/${project.id}`}
               className="hover:text-punk-pink transition-colors"
             >
               {project.name}
@@ -78,12 +76,12 @@ export function ProjectCard({
 
         {/* Social Links */}
         <div className="flex items-center gap-3 pt-2 mt-auto">
-          {showPunk && (
+          {showPunk && project.creators[0] && (
             <Link
-              href={`/${punkId}`}
+              href={`/${project.creators[0]}`}
               className="text-base font-bold uppercase tracking-wider hover:text-punk-blue"
             >
-              #{punkId}
+              #{project.creators[0]}
             </Link>
           )}
           {project.twitter && (

@@ -7,6 +7,8 @@ tags:
   - Analytics
   - Explorer
 twitter: doyle126
+creators:
+  - 5671
 ---
 
 A visualization tool that tracks and displays the ownership history of each CryptoPunk, showing how they've moved between wallets over time.

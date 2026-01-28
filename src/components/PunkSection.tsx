@@ -1,13 +1,14 @@
 import Link from "next/link";
-import { Punk } from "@/types";
+import { Punk, Project } from "@/types";
 import { PunkAvatar } from "./PunkAvatar";
 import { ProjectCard } from "./ProjectCard";
 
 interface PunkSectionProps {
   punk: Punk;
+  projects: Project[];
 }
 
-export function PunkSection({ punk }: PunkSectionProps) {
+export function PunkSection({ punk, projects }: PunkSectionProps) {
   return (
     <section className="py-8">
       {/* Punk Header */}
@@ -43,16 +44,16 @@ export function PunkSection({ punk }: PunkSectionProps) {
         </div>
         <div className="ml-auto">
           <span className="pixel-tag bg-neutral-100 text-neutral-500">
-            {punk.projects.length} project
-            {punk.projects.length !== 1 ? "s" : ""}
+            {projects.length} project
+            {projects.length !== 1 ? "s" : ""}
           </span>
         </div>
       </div>
 
       {/* Projects Grid */}
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {punk.projects.map((project) => (
-          <ProjectCard key={project.id} project={project} punkId={punk.id} />
+        {projects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
         ))}
       </div>
     </section>

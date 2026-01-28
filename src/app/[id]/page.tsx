@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import { Header, Footer, PunkAvatar, ProjectCard, Button } from "@/components";
-import { getPunkById, getAllPunks } from "@/data/punks";
+import { getPunkById, getAllPunks, getProjectsByPunk } from "@/data/punks";
 
 interface PunkPageProps {
   params: Promise<{ id: string }>;
@@ -27,8 +27,9 @@ export async function generateMetadata({
     };
   }
 
+  const projects = getProjectsByPunk(punkId);
   const name = punk.name || `Punk #${punkId}`;
-  const description = `Discover ${punk.projects.length} project${punk.projects.length !== 1 ? "s" : ""} inspired by Punk #${punkId}. Made by Punks - a community-curated directory of CryptoPunks projects.`;
+  const description = `Discover ${projects.length} project${projects.length !== 1 ? "s" : ""} inspired by Punk #${punkId}. Made by Punks - a community-curated directory of CryptoPunks projects.`;
 
   return {
     title: `${name} | Made by Punks`,
@@ -54,6 +55,7 @@ export default async function PunkPage({ params }: PunkPageProps) {
     notFound();
   }
 
+  const projects = getProjectsByPunk(punkId);
   const name = punk.name || `Punk #${punkId}`;
 
   return (
@@ -115,10 +117,10 @@ export default async function PunkPage({ params }: PunkPageProps) {
 
               <div className="bg-white/10 px-6 py-4 text-center backdrop-blur-sm">
                 <div className="text-4xl font-bold text-white">
-                  {punk.projects.length}
+                  {projects.length}
                 </div>
                 <div className="text-base font-bold uppercase tracking-wider text-white/80 font-pixel">
-                  Project{punk.projects.length !== 1 ? "s" : ""}
+                  Project{projects.length !== 1 ? "s" : ""}
                 </div>
               </div>
             </div>
@@ -140,8 +142,8 @@ export default async function PunkPage({ params }: PunkPageProps) {
             Projects featuring Punk #{punkId}
           </h2>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {punk.projects.map((project) => (
-              <ProjectCard key={project.id} project={project} punkId={punkId} />
+            {projects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
             ))}
           </div>
         </section>

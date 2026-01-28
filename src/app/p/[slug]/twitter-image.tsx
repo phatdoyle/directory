@@ -1,11 +1,14 @@
 import { generateProjectOGImage, generateNotFoundImage } from "@/lib/og-image";
-import { getProjectById, getAllProjectParams } from "@/data/punks";
+import { getProjectById, getAllProjects } from "@/data/punks";
 import { SITE_URL } from "@/lib/constants";
 
 export const runtime = "nodejs";
 
 export async function generateStaticParams() {
-  return getAllProjectParams();
+  const projects = getAllProjects();
+  return projects.map((project) => ({
+    slug: project.id,
+  }));
 }
 
 export const alt = "Made by Punks";
@@ -18,11 +21,10 @@ export const contentType = "image/png";
 export default async function Image({
   params,
 }: {
-  params: Promise<{ id: string; projectId: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const { id, projectId } = await params;
-  const punkId = parseInt(id, 10);
-  const project = getProjectById(punkId, projectId);
+  const { slug } = await params;
+  const project = getProjectById(slug);
 
   if (!project) {
     return generateNotFoundImage(size);
@@ -33,7 +35,7 @@ export default async function Image({
       name: project.name,
       description: project.description,
       thumbnail: project.thumbnail,
-      punkId,
+      punkId: project.creators[0],
       tags: project.tags,
     },
     size,

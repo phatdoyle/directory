@@ -4,9 +4,10 @@ import matter from "gray-matter";
 import { Punk, Project } from "@/types";
 
 const punksDirectory = path.join(process.cwd(), "content/punks");
+const projectsDirectory = path.join(process.cwd(), "content/projects");
 
 /**
- * Punk frontmatter schema (index.md)
+ * Punk frontmatter schema ({punkId}.md)
  */
 interface PunkFrontmatter {
   name?: string;
@@ -15,7 +16,7 @@ interface PunkFrontmatter {
 }
 
 /**
- * Project frontmatter schema (*.md except index.md)
+ * Project frontmatter schema ({slug}.md)
  */
 interface ProjectFrontmatter {
   name: string;
@@ -29,38 +30,60 @@ interface ProjectFrontmatter {
   discord?: string;
   hidden?: boolean;
   ded?: boolean;
+  creators: number[];
 }
 
 /**
- * Load a single punk by ID from the content folder
+ * Load all punks from content/punks/
  */
-function loadPunk(punkId: number): Punk | null {
-  const punkDir = path.join(punksDirectory, String(punkId));
+function loadAllPunks(): Map<number, Punk> {
+  const punks = new Map<number, Punk>();
 
-  if (!fs.existsSync(punkDir)) {
-    return null;
+  if (!fs.existsSync(punksDirectory)) {
+    return punks;
   }
 
-  // Load punk metadata from index.md
-  const indexPath = path.join(punkDir, "index.md");
-  let punkData: PunkFrontmatter = {};
-  let punkBody: string | undefined;
+  const files = fs.readdirSync(punksDirectory);
 
-  if (fs.existsSync(indexPath)) {
-    const indexContent = fs.readFileSync(indexPath, "utf8");
-    const { data, content } = matter(indexContent);
-    punkData = data as PunkFrontmatter;
-    punkBody = content.trim() || undefined;
+  for (const file of files) {
+    if (!file.endsWith(".md")) continue;
+
+    const punkId = parseInt(file.replace(/\.md$/, ""), 10);
+    if (isNaN(punkId)) continue;
+
+    const filePath = path.join(punksDirectory, file);
+    const fileContent = fs.readFileSync(filePath, "utf8");
+    const { data, content } = matter(fileContent);
+    const punkData = data as PunkFrontmatter;
+
+    punks.set(punkId, {
+      id: punkId,
+      name: punkData.name,
+      twitter: punkData.twitter,
+      website: punkData.website,
+      body: content.trim() || undefined,
+    });
   }
 
-  // Load all project files (*.md except index.md)
-  const files = fs.readdirSync(punkDir);
-  const projects: Project[] = files
-    .filter((file) => file.endsWith(".md") && file !== "index.md")
+  return punks;
+}
+
+/**
+ * Load all projects from content/projects/
+ */
+function loadAllProjects(): Project[] {
+  if (!fs.existsSync(projectsDirectory)) {
+    return [];
+  }
+
+  const files = fs.readdirSync(projectsDirectory);
+
+  return files
+    .filter((file) => file.endsWith(".md"))
     .map((file) => {
-      const filePath = path.join(punkDir, file);
+      const filePath = path.join(projectsDirectory, file);
       const fileContent = fs.readFileSync(filePath, "utf8");
-      const { data } = matter(fileContent);
+      const { data, content } = matter(fileContent);
       const projectData = data as ProjectFrontmatter;
 
       // Skip hidden or dead projects
@@ -69,7 +92,6 @@ function loadPunk(punkId: number): Punk | null {
       }
 
       const id = file.replace(/\.md$/, "");
-      const { content } = matter(fileContent);
 
       return {
         id,
@@ -84,100 +106,72 @@ function loadPunk(punkId: number): Punk | null {
         github: projectData.github,
         discord: projectData.discord,
         ded: projectData.ded,
+        creators: projectData.creators || [],
       } as Project;
     })
-    .filter((project): project is Project => project !== null);
-
-  return {
-    id: punkId,
-    name: punkData.name,
-    twitter: punkData.twitter,
-    website: punkData.website,
-    body: punkBody,
-    projects,
-  };
+    .filter((project): project is Project => project !== null)
+    .sort((a, b) => new Date(b.launchDate).getTime() - new Date(a.launchDate).getTime());
 }
 
-/**
- * Load all punks from the content folder
- */
-function loadAllPunks(): Punk[] {
-  if (!fs.existsSync(punksDirectory)) {
-    return [];
-  }
+// Load data once at build time
+const PUNKS_MAP = loadAllPunks();
+const PROJECTS = loadAllProjects();
 
-  const punkDirs = fs.readdirSync(punksDirectory);
-
-  return punkDirs
-    .filter((dir) => {
-      const dirPath = path.join(punksDirectory, dir);
-      return fs.statSync(dirPath).isDirectory() && /^\d+$/.test(dir);
-    })
-    .map((dir) => loadPunk(parseInt(dir, 10)))
-    .filter((punk): punk is Punk => punk !== null)
-    .sort((a, b) => a.id - b.id);
-}
-
-// Load punks once at build time
-const PUNKS: Punk[] = loadAllPunks();
+// Export punks as array sorted by ID
+const PUNKS = Array.from(PUNKS_MAP.values()).sort((a, b) => a.id - b.id);
 
 export default PUNKS;
+export { PROJECTS };
 
-// Helper functions (for backwards compatibility)
+// Helper functions
 export function getAllPunks(): number[] {
   return PUNKS.map((punk) => punk.id);
 }
 
 export function getPunkById(id: number): Punk | undefined {
-  return PUNKS.find((punk) => punk.id === id);
+  return PUNKS_MAP.get(id);
 }
 
-export function getAllProjects() {
-  return PUNKS.flatMap((punk) =>
-    punk.projects.map((project) => ({
-      ...project,
-      punkId: punk.id,
-      punkName: punk.name,
-    }))
-  );
+export function getAllProjects(): Project[] {
+  return PROJECTS;
+}
+
+export function getProjectById(projectId: string): Project | undefined {
+  return PROJECTS.find((p) => p.id === projectId);
+}
+
+export function getProjectsByPunk(punkId: number): Project[] {
+  return PROJECTS.filter((p) => p.creators.includes(punkId));
+}
+
+export function getProjectCreators(project: Project): Punk[] {
+  return project.creators
+    .map((id) => PUNKS_MAP.get(id))
+    .filter((punk): punk is Punk => punk !== undefined);
 }
 
 export function getAllTags(): string[] {
   const tags = new Set<string>();
-  PUNKS.forEach((punk) => {
-    punk.projects.forEach((project) => {
-      project.tags.forEach((tag) => tags.add(tag));
-    });
+  PROJECTS.forEach((project) => {
+    project.tags.forEach((tag) => tags.add(tag));
   });
   return Array.from(tags).sort();
 }
 
-export function getProjectsByTag(tag: string) {
-  return getAllProjects().filter((project) =>
+export function getProjectsByTag(tag: string): Project[] {
+  return PROJECTS.filter((project) =>
     project.tags.some((t) => t.toLowerCase() === tag.toLowerCase())
   );
 }
 
-export function getProjectById(punkId: number, projectId: string) {
-  const punk = getPunkById(punkId);
-  if (!punk) return undefined;
-
-  const project = punk.projects.find((p) => p.id === projectId);
-  if (!project) return undefined;
-
-  return {
-    ...project,
-    punkId: punk.id,
-    punkName: punk.name,
-    punkTwitter: punk.twitter,
-  };
+export function getAllProjectParams() {
+  return PROJECTS.map((project) => ({
+    slug: project.id,
+  }));
 }
 
-export function getAllProjectParams() {
-  return PUNKS.flatMap((punk) =>
-    punk.projects.map((project) => ({
-      id: String(punk.id),
-      projectId: project.id,
-    }))
-  );
+export function getAllPunkParams() {
+  return PUNKS.map((punk) => ({
+    id: String(punk.id),
+  }));
 }

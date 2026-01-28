@@ -1,5 +1,5 @@
 import { generateOGImage, generateNotFoundImage } from "@/lib/og-image";
-import { getPunkById } from "@/data/punks";
+import { getPunkById, getProjectsByPunk } from "@/data/punks";
 
 export const runtime = "nodejs";
 
@@ -23,13 +23,14 @@ export default async function Image({
     return generateNotFoundImage(size);
   }
 
+  const projects = getProjectsByPunk(punkId);
   const name = punk.name || `Punk #${punkId}`;
 
   return generateOGImage(
     {
       title: name,
       punkId,
-      projectCount: punk.projects.length,
+      projectCount: projects.length,
       twitter: punk.twitter,
     },
     size

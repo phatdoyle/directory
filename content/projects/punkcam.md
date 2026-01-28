@@ -9,6 +9,8 @@ tags:
   - AI
   - Fun
 twitter: PUNK_CAM
+creators:
+  - 2113
 ---
 
 PunkCam lets you become a CryptoPunk. Upload a photo or use your camera, and the app automatically detects faces and overlays pixel-perfect punk faces on top.

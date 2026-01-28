@@ -7,6 +7,8 @@ tags:
   - Analytics
   - Visualization
 twitter: doyle126
+creators:
+  - 5671
 ---
 
 A network visualization showing the interconnected universe of CryptoPunk collectors and how punks flow between wallets through sales and transfers.

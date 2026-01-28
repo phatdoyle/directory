@@ -1,5 +1,5 @@
 export interface Project {
-  id: string;
+  id: string; // Slug from filename
   name: string;
   description: string;
   body?: string; // Markdown content from the file
@@ -11,6 +11,7 @@ export interface Project {
   github?: string;
   discord?: string;
   ded?: boolean; // Project is dead/discontinued
+  creators: number[]; // Punk IDs who built this project
 }
 
 export interface Punk {
@@ -18,8 +19,7 @@ export interface Punk {
   name?: string;
   twitter?: string;
   website?: string;
-  body?: string; // Markdown content from index.md
-  projects: Project[];
+  body?: string; // Markdown content
 }
 
 export type PunksData = Record<number, Punk>;

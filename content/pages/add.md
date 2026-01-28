@@ -25,29 +25,25 @@ This is lore that belongs to everyone. Take it and build.
 
 ## Add Your Punk Profile
 
-Every punk can have their own page. Here's how:
+Every punk can have their own page - like MySpace, but on-chain adjacent.
 
 ### 1. Fork the Repository
 
 Go to [github.com/gwendall/madebypunks](https://github.com/gwendall/madebypunks) and fork the repo.
 
-### 2. Create Your Punk Folder
+### 2. Create Your Punk File
 
-Create a folder with your punk ID:
-
-```
-content/punks/[YOUR_PUNK_ID]/
-```
+Create a file `content/punks/[YOUR_PUNK_ID].md`
 
 For example, if you own Punk #1234:
 
 ```
-content/punks/1234/
+content/punks/1234.md
 ```
 
 ### 3. Add Your Profile
 
-Create an `index.md` file with your info:
+Write your markdown file:
 
 ```md
 ---
@@ -56,7 +52,7 @@ twitter: your_handle
 website: https://your-site.com
 ---
 
-Write anything you want here! This is your space.
+Write anything you want here! This is your MySpace page.
 
 Share your story, your vision, your memes. Use markdown to format your content however you like.
 ```
@@ -69,15 +65,19 @@ Share your story, your vision, your memes. Use markdown to format your content h
 | `twitter` | No | Twitter/X handle (without @) |
 | `website` | No | Your personal website |
 
+The content below the `---` is your bio. Go wild.
+
 ---
 
 ## Add Your Projects
 
-Each project gets its own markdown file in your punk folder.
+Each project gets its own markdown file in `content/projects/`.
 
 ### Create a Project File
 
-Create a file like `my-project.md`:
+Create `content/projects/your-project-slug.md`:
+
+> **Important:** The filename becomes the URL slug (e.g., `/p/your-project-slug`). Make sure it's unique!
 
 ```md
 ---
@@ -89,6 +89,8 @@ launchDate: 2024-01-15
 tags:
   - Tool
   - Art
+creators:
+  - 1234
 twitter: project_handle
 github: https://github.com/user/repo
 discord: https://discord.gg/invite
@@ -112,11 +114,25 @@ Optional longer description here. Use markdown for formatting.
 | `url` | Yes | Project URL |
 | `launchDate` | Yes | Launch date (YYYY-MM-DD) |
 | `tags` | Yes | Array of tags |
+| `creators` | Yes | Array of punk IDs who built this |
 | `thumbnail` | No | Path to image (use `/projects/filename.png`) |
 | `twitter` | No | Project's Twitter handle |
 | `github` | No | GitHub repo URL |
 | `discord` | No | Discord invite URL |
 | `hidden` | No | Set to `true` to hide from listings |
+| `ded` | No | Set to `true` if project is dead/discontinued |
+
+### Multiple Creators
+
+Projects can have multiple creators! Just list all the punk IDs:
+
+```yaml
+creators:
+  - 8070  # Matt Hall
+  - 5072  # John Watkinson
+```
+
+The project will appear on both punk profile pages.
 
 ### Add a Thumbnail
 
@@ -168,10 +184,12 @@ madebypunks/
 ├── content/
 │   ├── pages/              # Static pages (like this one)
 │   │   └── add.md
-│   └── punks/
-│       └── [punkId]/       # One folder per punk
-│           ├── index.md    # Punk profile
-│           └── *.md        # Project files
+│   ├── punks/              # Punk profiles
+│   │   ├── 2113.md
+│   │   └── 8070.md
+│   └── projects/           # Project files
+│       ├── punkcam.md
+│       └── cryptopunks-app.md
 ├── public/
 │   └── projects/           # Project thumbnails
 ├── src/

@@ -7,6 +7,8 @@ tags:
   - Guide
   - Education
 twitter: jalil_eth
+creators:
+  - 6980
 ---
 
 An educational guide exploring the history, culture, and significance of CryptoPunks in the NFT and crypto art space.
