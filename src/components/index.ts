@@ -8,3 +8,4 @@ export { ProjectListItem } from "./ProjectListItem";
 export { ProjectThumbnail } from "./ProjectThumbnail";
 export { Button } from "./Button";
 export { LinksList } from "./LinksList";
+export { AIAssistButtons } from "./AIAssistButtons";
