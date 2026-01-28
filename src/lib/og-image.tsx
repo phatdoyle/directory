@@ -108,6 +108,7 @@ export async function generateOGImage(
             {/* Name */}
             <div
               style={{
+                display: "flex",
                 fontSize: 72,
                 fontWeight: 900,
                 color: "white",
@@ -123,6 +124,7 @@ export async function generateOGImage(
             {/* Punk ID */}
             <div
               style={{
+                display: "flex",
                 fontSize: 36,
                 fontWeight: 700,
                 color: "white",
@@ -205,6 +207,7 @@ export async function generateOGImage(
             {/* Made by Punks branding */}
             <div
               style={{
+                display: "flex",
                 fontSize: 24,
                 fontWeight: 700,
                 color: "white",
@@ -278,6 +281,7 @@ export async function generateOGImage(
         >
           <div
             style={{
+              display: "flex",
               fontSize: 80,
               fontWeight: 900,
               color: "white",
@@ -291,6 +295,7 @@ export async function generateOGImage(
           {subtitle && (
             <div
               style={{
+                display: "flex",
                 fontSize: 28,
                 fontWeight: 700,
                 color: "white",
@@ -386,6 +391,7 @@ export async function generateProjectOGImage(
             {/* Project name */}
             <div
               style={{
+                display: "flex",
                 fontSize: 48,
                 fontWeight: 900,
                 color: "white",
@@ -401,16 +407,13 @@ export async function generateProjectOGImage(
             {/* Description */}
             <div
               style={{
+                display: "flex",
                 fontSize: 24,
                 fontWeight: 500,
                 color: "white",
                 marginTop: "16px",
                 opacity: 0.8,
                 lineHeight: 1.4,
-                display: "-webkit-box",
-                WebkitLineClamp: 3,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
               }}
             >
               {description}
@@ -430,6 +433,7 @@ export async function generateProjectOGImage(
                   <div
                     key={tag}
                     style={{
+                      display: "flex",
                       backgroundColor: i % 2 === 0 ? "#fff" : COLORS.punkPink,
                       color: i % 2 === 0 ? COLORS.punkBlue : "#fff",
                       border: "3px solid #000",
@@ -471,6 +475,7 @@ export async function generateProjectOGImage(
               </div>
               <div
                 style={{
+                  display: "flex",
                   fontSize: 18,
                   fontWeight: 700,
                   color: "white",
@@ -535,6 +540,7 @@ export async function generateProjectOGImage(
           {/* Project name */}
           <div
             style={{
+              display: "flex",
               fontSize: 64,
               fontWeight: 900,
               color: "white",
@@ -550,6 +556,7 @@ export async function generateProjectOGImage(
           {/* Description */}
           <div
             style={{
+              display: "flex",
               fontSize: 28,
               fontWeight: 500,
               color: "white",
@@ -576,6 +583,7 @@ export async function generateProjectOGImage(
                 <div
                   key={tag}
                   style={{
+                    display: "flex",
                     backgroundColor: i % 2 === 0 ? "#fff" : COLORS.punkPink,
                     color: i % 2 === 0 ? COLORS.punkBlue : "#fff",
                     border: "4px solid #000",
@@ -594,6 +602,7 @@ export async function generateProjectOGImage(
           {/* Branding */}
           <div
             style={{
+              display: "flex",
               fontSize: 20,
               fontWeight: 700,
               color: "white",
