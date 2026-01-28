@@ -319,10 +319,13 @@ export async function generateProjectOGImage(
   const { name, description, thumbnail, punkId, tags } = props;
 
   // Only use local thumbnails (starting with /) to avoid external image loading issues
+  // Skip GIFs as they're not supported by next/og ImageResponse
   const isLocalThumbnail = thumbnail?.startsWith("/");
+  const isGif = thumbnail?.endsWith(".gif");
+  const canUseThumbnail = isLocalThumbnail && !isGif;
 
-  // If local thumbnail exists, show it prominently
-  if (isLocalThumbnail && thumbnail) {
+  // If local thumbnail exists (and not a GIF), show it prominently
+  if (canUseThumbnail && thumbnail) {
     // Read local file directly from filesystem during build
     let thumbnailUrl: string;
     try {

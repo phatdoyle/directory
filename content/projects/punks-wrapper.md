@@ -1,14 +1,17 @@
 ---
 name: Punks Wrapper
-description: An easy-to-use and safe interface for wrapping CryptoPunks into ERC-721 tokens.
-url: https://punks.swap.kiwi
-launchDate: 2021-01-01
+description: >-
+  An easy-to-use and safe interface for wrapping CryptoPunks into ERC-721
+  tokens.
+url: 'https://punks.swap.kiwi'
+launchDate: 2021-01-01T00:00:00.000Z
 tags:
   - Wrapper
   - ERC-721
   - DeFi
 creators:
   - 2460
+thumbnail: /projects/punks-wrapper.png
 ---
 
 Punks Wrapper provides an easy-to-use and safe interface for the WrappedPunks smart contract. It allows CryptoPunk owners to wrap their punks into ERC-721 tokens, enabling compatibility with modern NFT marketplaces and DeFi protocols.

@@ -1,8 +1,10 @@
 ---
 name: CryptoPunks Origins
-description: A full-length documentary film chronicling the history and evolution of CryptoPunks from inception to global phenomenon.
-url: https://cryptopunksorigins.com/
-launchDate: 2023-01-01
+description: >-
+  A full-length documentary film chronicling the history and evolution of
+  CryptoPunks from inception to global phenomenon.
+url: 'https://cryptopunksorigins.com/'
+launchDate: 2023-01-01T00:00:00.000Z
 tags:
   - Documentary
   - Film
@@ -10,6 +12,7 @@ tags:
 twitter: CryptoPunksDocs
 creators:
   - 5230
+thumbnail: /projects/cryptopunks-origins.png
 ---
 
 CryptoPunks Origins is a full-length documentary film that chronicles the life and evolution of the CryptoPunks project from its inception as a niche experimental cult-project to its global explosion as the flagship of the digital art movement.

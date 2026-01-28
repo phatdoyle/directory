@@ -1,8 +1,10 @@
 ---
 name: Burned Punks
-description: A memorial for the CryptoPunks that have been permanently destroyed. There were 10,000. Now there are fewer.
-url: https://burnedpunks.com
-launchDate: 2023-11-01
+description: >-
+  A memorial for the CryptoPunks that have been permanently destroyed. There
+  were 10,000. Now there are fewer.
+url: 'https://burnedpunks.com'
+launchDate: 2023-11-01T00:00:00.000Z
 tags:
   - History
   - Art
@@ -10,6 +12,7 @@ tags:
 twitter: seanbonner
 creators:
   - 4736
+thumbnail: /projects/burned-punks.gif
 ---
 
 Burned Punks is an art project and memorial by Sean Bonner that documents the CryptoPunks that have been sent to null addresses, permanently removing them from circulation.
