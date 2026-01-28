@@ -7,7 +7,8 @@ tags:
   - Archive
   - Explorer
   - History
-twitter: doyle126
+links:
+  - https://x.com/doyle126
 creators:
   - 5671
 ---

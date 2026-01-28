@@ -31,7 +31,6 @@ export default async function Image({
       title: name,
       punkId,
       projectCount: projects.length,
-      twitter: punk.twitter,
     },
     size
   );

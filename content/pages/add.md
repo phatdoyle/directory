@@ -1,14 +1,14 @@
 ---
-title: Add Your Project
+title: Add Your Work
 ---
 
 # Share Your Work
 
-Made by Punks is a directory of projects that explore CryptoPunks art and culture. If you hold a punk and you've created something inspired by or related to CryptoPunks, we want to feature it here.
+Made by Punks is a directory of works that explore CryptoPunks art and culture. If you hold a punk and you've created something inspired by or related to CryptoPunks, we want to feature it here.
 
 ---
 
-## What Counts as a Project?
+## What Counts?
 
 Anything that explores, celebrates, or builds on CryptoPunks.
 
@@ -24,53 +24,55 @@ If it's about punks and you made it, it belongs here.
 
 ---
 
-## Two Ways to Add Your Project
+## Two Ways to Add Your Work
 
 ### Option 1: Fill Out a Form (Easy)
 
-Not comfortable with GitHub? No problem. Fill out [this form](https://github.com/madebypunks/directory/issues/new?template=project-submission.md&title=New+Project:+[Your+Project+Name]) and we'll add your project for you.
+Not comfortable with GitHub? No problem. Fill out [this form](https://github.com/madebypunks/directory/issues/new?template=project-submission.md&title=New+Project:+[Your+Project+Name]) and we'll add your work for you.
 
 Just tell us:
 - Your punk ID
-- Project name
+- Name of your work
 - What it is (a sentence or two)
 - Website or link
-- Your Twitter handle (optional)
+- Any other links (socials, etc.)
 - A thumbnail image (optional)
 
 A maintainer will take it from there.
 
 ### Option 2: Submit via GitHub (For Those Who Know Git)
 
-If you're comfortable with GitHub, you can add your project directly:
+If you're comfortable with GitHub, you can add your work directly:
 
 1. **Fork** the [repository](https://github.com/madebypunks/directory)
 2. **Create** a file in `content/projects/your-project.md`
-3. **Add** your project info (see format below)
+3. **Add** your info (see format below)
 4. **Submit** a pull request
 
 That's it. No gatekeepers, no approvals process. Just git.
 
 ---
 
-## Project File Format
+## File Format
 
 ```
 ---
-name: Your Project Name
+name: Your Work Name
 description: A brief description (1-2 sentences)
 url: https://your-project.com
 launchDate: 2024-01-15
 tags:
   - Art
   - Book
-  - Film
 creators:
   - 1234
-twitter: your_handle
+links:
+  - https://x.com/your_handle
+  - https://github.com/your_repo
+  - https://discord.gg/invite
 ---
 
-Write more about your project here if you want.
+Write more about your work here if you want.
 ```
 
 **Tags to choose from:**
@@ -85,8 +87,9 @@ Want your own page? Create `content/punks/[YOUR_PUNK_ID].md`:
 ```
 ---
 name: Your Name
-twitter: your_handle
-website: https://your-site.com
+links:
+  - https://x.com/your_handle
+  - https://your-site.com
 ---
 
 Write anything you want here. This is your space.
@@ -96,7 +99,7 @@ Write anything you want here. This is your space.
 
 ## Collabs Welcome
 
-Projects can have multiple creators. List all the punk IDs:
+Works can have multiple creators. List all the punk IDs:
 
 ```
 creators:
@@ -104,7 +107,7 @@ creators:
   - 5678
 ```
 
-The project will appear on both punk pages.
+The work will appear on both punk pages.
 
 ---
 

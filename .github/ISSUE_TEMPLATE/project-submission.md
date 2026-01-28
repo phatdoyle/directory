@@ -1,7 +1,7 @@
 ---
-name: Project Submission
-about: Add your CryptoPunks-related project to the directory
-title: "New Project: [Your Project Name]"
+name: Work Submission
+about: Add your CryptoPunks-related work to the directory
+title: "New Work: [Your Work Name]"
 labels: submission
 assignees: ""
 ---
@@ -14,31 +14,32 @@ assignees: ""
 **Your Name (optional):**
 <!-- How you want to be credited -->
 
-**Twitter Handle (optional):**
-<!-- Without the @ -->
+**Your Links (optional):**
+<!-- Any links you want on your profile: X/Twitter, website, etc. One per line -->
 
 ---
 
-## Your Project
+## Your Work
 
-**Project Name:**
+**Name:**
 
 **Website URL:**
 
 **What is it?**
-<!-- A sentence or two describing your CryptoPunks-related project -->
+<!-- A sentence or two describing your CryptoPunks-related work -->
 
 **When did you launch it?**
 <!-- Month/Year is fine, like "June 2024" -->
 
-**What type of project is it?**
+**What type of work is it?**
 <!-- Pick all that apply: Art, Book, Film, Documentary, Music, Animation, Derivative, Generative, History, Guide, Creation, Memes, Fun, Community, Collector, etc. -->
 
 ---
 
 ## Extras (Optional)
 
-**Project Twitter:**
+**Links:**
+<!-- Any related links: X/Twitter, GitHub, Discord, etc. One per line -->
 
 **Thumbnail Image:**
 <!-- You can drag and drop an image here, or paste a link -->
@@ -47,4 +48,4 @@ assignees: ""
 
 ---
 
-*A maintainer will add your project to the directory. Thanks for contributing!*
+*A maintainer will add your work to the directory. Thanks for contributing!*

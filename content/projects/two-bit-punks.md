@@ -7,7 +7,8 @@ tags:
   - Art
   - Generative
   - Derivative
-twitter: seanbonner
+links:
+  - https://x.com/seanbonner
 creators:
   - 4736
 ---

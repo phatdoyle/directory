@@ -7,9 +7,7 @@ export interface Project {
   url: string;
   launchDate: string;
   tags: string[];
-  twitter?: string;
-  github?: string;
-  discord?: string;
+  links?: string[]; // Social links, websites, etc.
   ded?: boolean; // Project is dead/discontinued
   featured?: boolean; // Featured projects appear first
   creators: number[]; // Punk IDs who built this project
@@ -18,8 +16,7 @@ export interface Project {
 export interface Punk {
   id: number;
   name?: string;
-  twitter?: string;
-  website?: string;
+  links?: string[]; // Social links, websites, etc.
   body?: string; // Markdown content
 }
 

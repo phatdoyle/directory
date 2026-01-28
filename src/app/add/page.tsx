@@ -6,9 +6,9 @@ import Markdown from "react-markdown";
 import { Header, Footer } from "@/components";
 
 export const metadata: Metadata = {
-  title: "Add Your Project | Made by Punks",
+  title: "Share Your Work | Made by Punks",
   description:
-    "Learn how to add your punk profile and projects to the Made by Punks directory. A trustless, community-owned directory.",
+    "Learn how to add your punk profile and works to the Made by Punks directory. A trustless, community-owned directory.",
 };
 
 function getPageContent() {

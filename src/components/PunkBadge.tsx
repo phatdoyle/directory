@@ -6,7 +6,6 @@ interface PunkBadgeProps {
   punk: Punk;
   size?: "sm" | "md" | "lg";
   showName?: boolean;
-  showTwitter?: boolean;
 }
 
 const sizeConfig = {
@@ -19,7 +18,6 @@ export function PunkBadge({
   punk,
   size = "md",
   showName = true,
-  showTwitter = false,
 }: PunkBadgeProps) {
   const config = sizeConfig[size];
 
@@ -38,11 +36,6 @@ export function PunkBadge({
               #{punk.id}
             </span>
           </div>
-          {showTwitter && punk.twitter && (
-            <div className={`${config.text} font-medium opacity-60 truncate`}>
-              @{punk.twitter}
-            </div>
-          )}
         </div>
       )}
     </Link>

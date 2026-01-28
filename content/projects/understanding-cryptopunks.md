@@ -7,7 +7,8 @@ tags:
   - Guide
   - Education
   - Culture
-twitter: jalil_eth
+links:
+  - https://x.com/jalil_eth
 creators:
   - 6980
 ---

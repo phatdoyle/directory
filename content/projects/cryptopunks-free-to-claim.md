@@ -9,7 +9,8 @@ tags:
   - Book
   - History
   - Art
-twitter: seanbonner
+links:
+  - https://x.com/seanbonner
 creators:
   - 4736
   - 98

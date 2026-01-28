@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Project, Punk } from "@/types";
 import { ProjectThumbnail } from "./ProjectThumbnail";
 import { PunkAvatar } from "./PunkAvatar";
-import { XIcon, GitHubIcon, DiscordIcon } from "./icons";
+import { LinksList } from "./LinksList";
 
 interface ProjectCardProps {
   project: Project;
@@ -71,7 +71,7 @@ export function ProjectCard({
           {project.description}
         </p>
 
-        {/* Social Links + Date */}
+        {/* Links + Date */}
         <div className="flex items-center gap-3 pt-2 mt-auto">
           {showPunk && project.creators[0] && (
             <Link
@@ -81,38 +81,8 @@ export function ProjectCard({
               #{project.creators[0]}
             </Link>
           )}
-          {project.twitter && (
-            <a
-              href={`https://x.com/${project.twitter}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="opacity-60 transition-opacity hover:opacity-100 hover:text-punk-blue"
-              aria-label="Twitter"
-            >
-              <XIcon className="h-4 w-4" />
-            </a>
-          )}
-          {project.github && (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="opacity-60 transition-opacity hover:opacity-100 hover:text-punk-blue"
-              aria-label="GitHub"
-            >
-              <GitHubIcon className="h-4 w-4" />
-            </a>
-          )}
-          {project.discord && (
-            <a
-              href={project.discord}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="opacity-60 transition-opacity hover:opacity-100 hover:text-punk-blue"
-              aria-label="Discord"
-            >
-              <DiscordIcon className="h-4 w-4" />
-            </a>
+          {project.links && project.links.length > 0 && (
+            <LinksList links={project.links} />
           )}
           <time
             dateTime={project.launchDate}

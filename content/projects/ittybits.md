@@ -9,7 +9,8 @@ tags:
   - Art
   - Derivative
   - Pixel
-twitter: posvar
+links:
+  - https://x.com/posvar
 creators:
   - 7741
 thumbnail: /projects/ittybits.png

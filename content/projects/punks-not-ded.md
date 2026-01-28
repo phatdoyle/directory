@@ -7,7 +7,8 @@ tags:
   - Book
   - History
   - Collector
-twitter: seanbonner
+links:
+  - https://x.com/seanbonner
 creators:
   - 4736
 ---

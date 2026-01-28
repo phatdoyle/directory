@@ -8,7 +8,8 @@ tags:
   - Creation
   - Tool
   - Art
-twitter: gwendall
+links:
+  - https://x.com/gwendall
 creators:
   - 2113
 ---

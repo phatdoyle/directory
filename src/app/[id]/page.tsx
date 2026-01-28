@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Markdown from "react-markdown";
-import { Header, Footer, PunkAvatar, ProjectListItem, Button } from "@/components";
+import { Header, Footer, PunkAvatar, ProjectListItem, LinksList } from "@/components";
 import { getPunkById, getAllPunks, getProjectsByPunk, getProjectCreators } from "@/data/punks";
 
 interface PunkPageProps {
@@ -88,31 +88,11 @@ export default async function PunkPage({ params }: PunkPageProps) {
                   CryptoPunk #{punkId}
                 </p>
 
-                <div className="mt-6 flex flex-wrap items-center gap-3">
-                  {punk.twitter && (
-                    <Button
-                      href={`https://x.com/${punk.twitter}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      variant="white"
-                      size="sm"
-                      className="text-punk-blue"
-                    >
-                      @{punk.twitter}
-                    </Button>
-                  )}
-                  {punk.website && (
-                    <Button
-                      href={punk.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      variant="secondary"
-                      size="sm"
-                    >
-                      {new URL(punk.website).hostname.replace("www.", "")}
-                    </Button>
-                  )}
-                </div>
+                {punk.links && punk.links.length > 0 && (
+                  <div className="mt-6">
+                    <LinksList links={punk.links} className="text-white/70" />
+                  </div>
+                )}
               </div>
 
               <div className="bg-white/10 px-6 py-4 text-center backdrop-blur-sm">

@@ -8,7 +8,8 @@ tags:
   - Camera
   - Playful
   - Fun
-twitter: PUNK_CAM
+links:
+  - https://x.com/PUNK_CAM
 creators:
   - 2113
 ---

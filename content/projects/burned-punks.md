@@ -9,7 +9,8 @@ tags:
   - History
   - Art
   - Memorial
-twitter: seanbonner
+links:
+  - https://x.com/seanbonner
 creators:
   - 4736
 thumbnail: /projects/burned-punks.gif

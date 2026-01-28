@@ -2,8 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Markdown from "react-markdown";
-import { Header, Footer, PunkAvatar, ProjectThumbnail, Button } from "@/components";
-import { XIcon, GitHubIcon, DiscordIcon } from "@/components/icons";
+import { Header, Footer, PunkAvatar, ProjectThumbnail, Button, LinksList } from "@/components";
 import { getProjectById, getAllProjects, getProjectCreators } from "@/data/punks";
 
 interface ProjectPageProps {
@@ -97,7 +96,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   {project.description}
                 </p>
 
-                <div className="mt-6 flex flex-wrap items-center gap-3">
+                <div className="mt-6 flex flex-wrap items-center gap-4">
                   <Button
                     href={project.url}
                     target="_blank"
@@ -109,46 +108,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     View →
                   </Button>
 
-                  {project.twitter && (
-                    <Button
-                      href={`https://x.com/${project.twitter}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      variant="secondary"
-                      size="md"
-                      className="gap-2"
-                    >
-                      <XIcon className="h-4 w-4" />
-                      @{project.twitter}
-                    </Button>
-                  )}
-
-                  {project.github && (
-                    <Button
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      variant="outline"
-                      size="md"
-                      className="gap-2"
-                    >
-                      <GitHubIcon className="h-4 w-4" />
-                      GitHub
-                    </Button>
-                  )}
-
-                  {project.discord && (
-                    <Button
-                      href={project.discord}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      variant="outline"
-                      size="md"
-                      className="gap-2"
-                    >
-                      <DiscordIcon className="h-4 w-4" />
-                      Discord
-                    </Button>
+                  {project.links && project.links.length > 0 && (
+                    <LinksList links={project.links} className="text-white/70" />
                   )}
                 </div>
 

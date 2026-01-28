@@ -11,8 +11,7 @@ const projectsDirectory = path.join(process.cwd(), "content/projects");
  */
 interface PunkFrontmatter {
   name?: string;
-  twitter?: string;
-  website?: string;
+  links?: string[];
 }
 
 /**
@@ -25,9 +24,7 @@ interface ProjectFrontmatter {
   url: string;
   launchDate: string;
   tags: string[];
-  twitter?: string;
-  github?: string;
-  discord?: string;
+  links?: string[];
   hidden?: boolean;
   ded?: boolean;
   featured?: boolean;
@@ -60,8 +57,7 @@ function loadAllPunks(): Map<number, Punk> {
     punks.set(punkId, {
       id: punkId,
       name: punkData.name,
-      twitter: punkData.twitter,
-      website: punkData.website,
+      links: punkData.links,
       body: content.trim() || undefined,
     });
   }
@@ -103,9 +99,7 @@ function loadAllProjects(): Project[] {
         url: projectData.url,
         launchDate: projectData.launchDate,
         tags: projectData.tags || [],
-        twitter: projectData.twitter,
-        github: projectData.github,
-        discord: projectData.discord,
+        links: projectData.links,
         ded: projectData.ded,
         featured: projectData.featured,
         creators: projectData.creators || [],

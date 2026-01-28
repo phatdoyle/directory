@@ -7,7 +7,8 @@ tags:
   - Creation
   - Tool
   - Art
-twitter: ThePunkAnimator
+links:
+  - https://x.com/ThePunkAnimator
 creators:
   - 6987
 thumbnail: /projects/the-punk-builder.gif

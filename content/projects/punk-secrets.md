@@ -7,7 +7,8 @@ tags:
   - Interactive
   - Mystery
   - Art
-twitter: CryptoPunksDocs
+links:
+  - https://x.com/CryptoPunksDocs
 creators:
   - 5230
 thumbnail: /projects/punk-secrets.jpg

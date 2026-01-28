@@ -7,7 +7,8 @@ tags:
   - Marketplace
   - Explorer
   - Official
-twitter: cryptopunks
+links:
+  - https://x.com/cryptopunks
 featured: true
 creators:
   - 8070

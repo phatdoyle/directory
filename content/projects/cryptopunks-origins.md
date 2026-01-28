@@ -9,7 +9,8 @@ tags:
   - Documentary
   - Film
   - History
-twitter: CryptoPunksDocs
+links:
+  - https://x.com/CryptoPunksDocs
 creators:
   - 5230
 thumbnail: /projects/cryptopunks-origins.png
