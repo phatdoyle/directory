@@ -13,7 +13,7 @@ interface ParsedLink {
 
 /**
  * Parse a URL and extract a smart label
- * - Social networks: show @username
+ * - Social networks: show username
  * - Regular sites: show domain
  */
 function parseLink(url: string): ParsedLink {
@@ -28,7 +28,7 @@ function parseLink(url: string): ParsedLink {
       if (username) {
         return {
           url,
-          label: `@${username}`,
+          label: username,
           favicon: `https://www.google.com/s2/favicons?domain=x.com&sz=32`,
         };
       }
@@ -42,7 +42,7 @@ function parseLink(url: string): ParsedLink {
         const handle = parts[profileIndex + 1];
         return {
           url,
-          label: `@${handle.replace(".bsky.social", "")}`,
+          label: handle.replace(".bsky.social", ""),
           favicon: `https://www.google.com/s2/favicons?domain=bsky.app&sz=32`,
         };
       }
@@ -54,7 +54,7 @@ function parseLink(url: string): ParsedLink {
       if (username) {
         return {
           url,
-          label: `@${username}`,
+          label: username,
           favicon: `https://www.google.com/s2/favicons?domain=instagram.com&sz=32`,
         };
       }
@@ -66,7 +66,7 @@ function parseLink(url: string): ParsedLink {
       if (parts[1] === "in" && parts[2]) {
         return {
           url,
-          label: `@${parts[2]}`,
+          label: parts[2],
           favicon: `https://www.google.com/s2/favicons?domain=linkedin.com&sz=32`,
         };
       }
@@ -78,7 +78,7 @@ function parseLink(url: string): ParsedLink {
       if (username) {
         return {
           url,
-          label: `@${username}`,
+          label: username,
           favicon: `https://www.google.com/s2/favicons?domain=github.com&sz=32`,
         };
       }
@@ -90,7 +90,7 @@ function parseLink(url: string): ParsedLink {
       if (parts[1] && parts[1].startsWith("@")) {
         return {
           url,
-          label: parts[1],
+          label: parts[1].slice(1),
           favicon: `https://www.google.com/s2/favicons?domain=youtube.com&sz=32`,
         };
       }
