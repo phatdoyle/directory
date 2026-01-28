@@ -173,7 +173,7 @@ export async function generateOGImage(
                       textTransform: "uppercase",
                     }}
                   >
-                    Project{projectCount !== 1 ? "s" : ""}
+                    Work{projectCount !== 1 ? "s" : ""}
                   </span>
                 </div>
               )}

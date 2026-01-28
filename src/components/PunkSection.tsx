@@ -39,7 +39,7 @@ export function PunkSection({ punks, projects, isFirst = false }: PunkSectionPro
 
           {/* Project count */}
           <span className="ml-auto text-sm font-medium opacity-50 whitespace-nowrap">
-            {projects.length} project{projects.length !== 1 ? "s" : ""}
+            {projects.length} work{projects.length !== 1 ? "s" : ""}
           </span>
         </div>
       </div>

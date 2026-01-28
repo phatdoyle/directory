@@ -38,7 +38,7 @@ export default function HomePage() {
                   {totalProjects}
                 </span>
                 <span className="ml-2 text-sm font-bold uppercase tracking-wider text-white font-pixel">
-                  Projects
+                  Works
                 </span>
               </div>
             </div>

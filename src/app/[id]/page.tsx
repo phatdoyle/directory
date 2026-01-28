@@ -29,7 +29,7 @@ export async function generateMetadata({
 
   const projects = getProjectsByPunk(punkId);
   const name = punk.name || `Punk #${punkId}`;
-  const description = `Discover ${projects.length} project${projects.length !== 1 ? "s" : ""} inspired by Punk #${punkId}. Made by Punks - a community-curated directory of CryptoPunks projects.`;
+  const description = `Discover ${projects.length} work${projects.length !== 1 ? "s" : ""} inspired by Punk #${punkId}. Made by Punks - a community-curated directory of CryptoPunks works.`;
 
   return {
     title: `${name} | Made by Punks`,
@@ -120,7 +120,7 @@ export default async function PunkPage({ params }: PunkPageProps) {
                   {projects.length}
                 </div>
                 <div className="text-base font-bold uppercase tracking-wider text-white/80 font-pixel">
-                  Project{projects.length !== 1 ? "s" : ""}
+                  Work{projects.length !== 1 ? "s" : ""}
                 </div>
               </div>
             </div>
@@ -139,7 +139,7 @@ export default async function PunkPage({ params }: PunkPageProps) {
         {/* Projects List */}
         <section className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
           <h2 className="mb-6 text-xl font-bold uppercase tracking-wider">
-            Projects featuring Punk #{punkId}
+            Works
           </h2>
           <div>
             {projects.map((project) => {
