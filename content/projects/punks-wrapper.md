@@ -18,7 +18,7 @@ Punks Wrapper provides an easy-to-use and safe interface for the WrappedPunks sm
 
 ## Why Wrap?
 
-CryptoPunks predate the ERC-721 standard—they use a custom contract from 2017. Wrapping converts your punk to the standard NFT format, allowing you to:
+CryptoPunks predate the ERC-721 standard - they use a custom contract from 2017. Wrapping converts your punk to the standard NFT format, allowing you to:
 
 - **Trade on OpenSea** and other ERC-721 marketplaces
 - **Use in DeFi** protocols that require ERC-721

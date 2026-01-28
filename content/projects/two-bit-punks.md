@@ -13,7 +13,7 @@ creators:
   - 4736
 ---
 
-Two Bit Punks is a generative art collection of 512 pieces by Sean Bonner—an exercise in assumptions, association, aggressive minimalism, and forced constraint.
+Two Bit Punks is a generative art collection of 512 pieces by Sean Bonner - an exercise in assumptions, association, aggressive minimalism, and forced constraint.
 
 ## The Concept
 

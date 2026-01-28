@@ -27,4 +27,4 @@ IttyBits is a 10k PFP project where each CryptoPunk is rendered at 12×12 pixels
 
 ## Why 12×12?
 
-When doing anything on-chain, minimizing data size is critical. The question was: how small can a punk be made while retaining the individuality of the image? The answer turns out to be 12×12 pixels—any smaller and the traits become indistinguishable.
+When doing anything on-chain, minimizing data size is critical. The question was: how small can a punk be made while retaining the individuality of the image? The answer turns out to be 12×12 pixels - any smaller and the traits become indistinguishable.
